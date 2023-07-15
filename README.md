@@ -21,10 +21,6 @@ In this repository, you will find:
 
 We always welcome feedback and community involvement. If you have any questions, suggestions, or you wish to contribute to our work, please feel free to reach out.
 
-## License
-
-Please note that all materials in this repository are distributed under the [INSERT LICENSE HERE] license. Please familiarize yourself with our terms of use before utilizing materials.
-
 ---
 
 Thank you for your interest in our work! We hope you will find something useful here. Don't forget to follow our repository to keep up with updates.
