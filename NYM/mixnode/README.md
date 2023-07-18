@@ -39,4 +39,4 @@ chmod +x mixnode.sh
 ./mixnode.sh
 ```
 
-[![GitHub Download Cgecker](https://img.shields.io/github/downloads/nodersteam/NYM/mixnode/total.svg)]
+[![GitHub Download Cgecker](https://img.shields.io/github/downloads/nodersteam/noderslabs/NYM/mixnode/total.svg)]
