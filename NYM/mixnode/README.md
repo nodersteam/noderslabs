@@ -37,3 +37,6 @@ To download and run the script on your Linux server, use the following commands:
 curl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode.sh
 chmod +x mixnode.sh
 ./mixnode.sh
+```
+
+[![GitHub Download Cgecker](https://img.shields.io/github/downloads/nodersteam/noderslabs/edit/main/NYM/mixnode/total.svg)]
