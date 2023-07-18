@@ -38,23 +38,23 @@ read choice
 
 case $choice in
     1)
-        curl -s -O https://github.com/nodersteam/noderslabs/blob/main/NYM/mixnode/mixnode_setup/nym_en.sh > 
+        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_en.sh
         bash script.sh
         ;;
     2)
-        curl -s -O https://github.com/nodersteam/noderslabs/blob/main/NYM/mixnode/mixnode_setup/nym_ind.sh
+        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ind.sh
         bash script.sh
         ;;
     3)
-        curl -s -O https://github.com/nodersteam/noderslabs/blob/main/NYM/mixnode/mixnode_setup/nym_du.sh
+        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_du.sh
         bash script.sh
         ;;
     4)
-        curl -s -O https://github.com/nodersteam/noderslabs/blob/main/NYM/mixnode/mixnode_setup/nym_ru.sh
+        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ru.sh
         bash script.sh
         ;;
     5)
-        curl -s -O https://github.com/nodersteam/noderslabs/blob/main/NYM/mixnode/mixnode_setup/nym_esp.sh
+        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_esp.sh
         bash script.sh
         ;;
     6)
