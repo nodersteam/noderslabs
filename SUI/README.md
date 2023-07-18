@@ -17,3 +17,5 @@ This repository showcases our team's contributions to the SUI project. We are st
 Within this repository, you'll find scripts, code, documentation, and other resources that our team has developed as part of our work on SUI. Although we warmly welcome any feedback or queries about our contributions, we would like to kindly remind that this repository is not designed for public contributions.
 
 Please feel free to explore the repository and do not hesitate to contact us if you have any questions or suggestions about our work.
+
+Check out our [Automated SUI Reward and Gas Voting Script](https://github.com/nodersteam/noderslabs/tree/main/SUI/suireward) to effortlessly manage rewards and participate in gas price voting in the SUI platform.
