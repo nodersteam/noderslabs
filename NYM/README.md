@@ -1,4 +1,4 @@
-![Логотип Lava Provider](https://github.com/nodersteam/picture/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-07-18%20134733.png?raw=true)
+![Lava Provider Logo](https://github.com/nodersteam/picture/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-07-18%20134733.png?raw=true)
 
 # Nym Project Repository
 
@@ -15,3 +15,5 @@ This repository is a curated collection of our team's contributions to the Nym p
 Within this repository, you'll find scripts, code, documentation, and other resources that we've developed as part of our work on Nym. While we warmly welcome any feedback or questions about our contributions, we kindly ask that you respect the fact that this repository is not intended for public contributions.
 
 Please explore the repository and do not hesitate to get in touch if you have any questions or suggestions regarding our work.
+
+Check out our automated [Nym Mixnode Setup Script](https://github.com/nodersteam/noderslabs/tree/main/NYM/mixnode) to effortlessly set up your own Nym mixnode.
