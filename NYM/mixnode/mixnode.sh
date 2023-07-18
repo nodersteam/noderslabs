@@ -48,7 +48,7 @@ case $choice in
         ;;
     3)
         curl -s -o nym_du.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_de.sh
-        [ $? -eq 0 ] && bash nym_du.sh || echo "Failed to download script"
+        [ $? -eq 0 ] && bash nym_de.sh || echo "Failed to download script"
         ;;
     4)
         curl -s -o nym_ru.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ru.sh
@@ -56,7 +56,7 @@ case $choice in
         ;;
     5)
         curl -s -o nym_esp.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_es.sh
-        [ $? -eq 0 ] && bash nym_esp.sh || echo "Failed to download script"
+        [ $? -eq 0 ] && bash nym_es.sh || echo "Failed to download script"
         ;;
     6)
         curl -s -o nym_gr.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_gr.sh
