@@ -32,7 +32,7 @@ To use the script, follow these steps:
 2. **Clone the Repository:** Open your terminal and navigate to the directory where you want to clone the repository. Use the following command to clone the repository:
 
     ```bash
-    git clone https://github.com/nodersteam/noderslabs.git
+    git clone https://github.com/nodersteam/noderslabs/tree/main/SUI
     ```
 
 3. **Navigate to the Script:** Move into the cloned repository and then into the `SUI/suireward` directory using:
