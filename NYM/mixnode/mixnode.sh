@@ -38,24 +38,24 @@ read choice
 
 case $choice in
     1)
-        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_en.sh
-        bash script.sh
+        curl -s -o nym_en.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_en.sh
+        bash nym_en.sh
         ;;
     2)
-        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ind.sh
-        bash script.sh
+        curl -s -o nym_ind.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ind.sh
+        bash nym_ind.sh
         ;;
     3)
-        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_du.sh
-        bash script.sh
+        curl -s -o nym_du.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_du.sh
+        bash nym_du.sh
         ;;
     4)
-        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ru.sh
-        bash script.sh
+        curl -s -o nym_ru.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ru.sh
+        bash nym_ru.sh
         ;;
     5)
-        curl -s -o script.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_esp.sh
-        bash script.sh
+        curl -s -o nym_esp.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_esp.sh
+        bash nym_esp.sh
         ;;
     6)
         echo "Exiting."
