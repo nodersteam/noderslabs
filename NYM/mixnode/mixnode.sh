@@ -32,7 +32,8 @@ echo "2) Indonesian"
 echo "3) German"
 echo "4) Russian"
 echo "5) Spanish"
-echo "6) Quit"
+echo "6) Greek"
+echo "7) Quit"
 
 read choice
 
@@ -58,6 +59,10 @@ case $choice in
         [ $? -eq 0 ] && bash nym_esp.sh || echo "Failed to download script"
         ;;
     6)
+        curl -s -o nym_gr.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_gr.sh
+        [ $? -eq 0 ] && bash nym_gr.sh || echo "Failed to download script"
+        ;;
+    7)
         echo "Exiting."
         exit 0
         ;;
