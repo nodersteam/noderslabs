@@ -98,6 +98,8 @@ EOF
   sudo systemctl daemon-reload
   sudo systemctl enable nym-mixnode
   sudo systemctl restart nym-mixnode
+  echo "Congrats! Your mixnode is running. It's time to delegate tokens on it and promote it among your friends."
+  echo "Support and embrace the privacy provided by NYM"
 }
 
 # Node update
