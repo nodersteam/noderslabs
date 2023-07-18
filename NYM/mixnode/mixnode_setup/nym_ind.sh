@@ -99,7 +99,7 @@ EOF
   sudo systemctl enable nym-mixnode
   sudo systemctl restart nym-mixnode
 echo "Selamat! Mixnode Anda sedang berjalan. Saatnya untuk mendelegasikan token ke dalamnya dan mempromosikannya di antara teman-teman Anda."
-echo "Dukung dan hargai privasi yang disediakan oleh NYM."
+echo "Pertahankan dan nikmati privasi yang disediakan NYM."
 }
 
 # Perbarui Node
