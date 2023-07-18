@@ -32,20 +32,20 @@ aktuellste_version_holen() {
   head -1
 }
 
-# Einrichtung des Knotens
-einrichtung_des_knotens() {
-  # Geben Sie den Knotennamen ein, wenn er nicht existiert
-  if [ ! $knoten_name ]; then
-    read -p "Geben Sie den Knotennamen ein: " knoten_name
-    echo 'export knoten_name='\"${knoten_name}\" >> $HOME/.bash_profile
+# Einrichtung des Nodes
+einrichtung_des_Nodes() {
+  # Geben Sie den Nodenamen ein, wenn er nicht existiert
+  if [ ! $Node_name ]; then
+    read -p "Geben Sie den Nodenamen ein: " Node_name
+    echo 'export Node_name='\"${Node_name}\" >> $HOME/.bash_profile
   fi
 
   # Bash-Profil laden
   echo 'source $HOME/.bashrc' >> $HOME/.bash_profile
   . $HOME/.bash_profile
 
-  # Knotennamen ausgeben
-  echo 'Ihr Knotenname: ' $knoten_name
+  # Nodenamen ausgeben
+  echo 'Ihr Nodename: ' $Node_name
 
   # System aktualisieren
   sudo apt-get update
@@ -70,8 +70,8 @@ einrichtung_des_knotens() {
   cargo build --release --bin nym-mixnode
   sudo mv target/release/nym-mixnode /usr/local/bin/
 
-  # Knoten initialisieren
-  nym-mixnode init --id $knoten_name --host $(curl ifconfig.me)
+  # Node initialisieren
+  nym-mixnode init --id $Node_name --host $(curl ifconfig.me)
 
   # Firewall konfigurieren
   sudo ufw allow 1789,1790,8000,22,80,443/tcp
@@ -83,7 +83,7 @@ Description=Nym Mixnode
 
 [Service]
 User=$USER
-ExecStart=/usr/local/bin/nym-mixnode run --id '$knoten_name'
+ExecStart=/usr/local/bin/nym-mixnode run --id '$Node_name'
 KillSignal=SIGINT
 Restart=on-failure
 RestartSec=30
@@ -102,8 +102,8 @@ echo "Herzlichen Glückwunsch! Ihr Mixnode läuft. Es ist Zeit, Tokens darauf zu
 echo "Unterstützen Sie und schätzen Sie die Privatsphäre, die von NYM bereitgestellt wird."
 }
 
-# Knoten aktualisieren
-knoten_aktualisieren() {
+# Node aktualisieren
+Node_aktualisieren() {
   echo "Abrufen der neuesten Versionsinformationen von GitHub..."
   aktuellste_version=$(aktuellste_version_holen)
 
@@ -126,28 +126,28 @@ knoten_aktualisieren() {
   esac
 }
 
-# Knotenstatus überprüfen
+# Nodestatus überprüfen
 status_ueberpruefen() {
-  knoten_status=$(sudo systemctl is-active nym-mixnode)
-  if [ "$knoten_status" = "active" ]; then
+  Node_status=$(sudo systemctl is-active nym-mixnode)
+  if [ "$Node_status" = "active" ]; then
     echo "Nym Mixnode Dienst ist aktiv und läuft."
   else
     echo "Nym Mixnode Dienst ist inaktiv."
   fi
 }
 
-# Knoten entfernen
-knoten_entfernen() {
+# Node entfernen
+Node_entfernen() {
   sudo systemctl stop nym-mixnode
   sudo systemctl disable nym-mixnode
   sudo rm /usr/local/bin/nym-mixnode
   sudo rm /etc/systemd/system/nym-mixnode.service
   sudo systemctl daemon-reload
   rm -rf $HOME/nym
-  echo "Nym Knoten erfolgreich entfernt."
+  echo "Nym Node erfolgreich entfernt."
 }
 
-# Knoten Aktionsmenü
+# Node Aktionsmenü
 while true; do
   PS3='Bitte geben Sie Ihre Wahl ein: '
   optionen=("Node einrichten" "Node überprüfen" "Node aktualisieren" "Node entfernen" "Beenden")
@@ -155,7 +155,7 @@ while true; do
   do
       case $opt in
           "Node einrichten")
-              einrichtung_des_knotens
+              einrichtung_des_Nodes
               break
               ;;
           "Node überprüfen")
@@ -163,11 +163,11 @@ while true; do
               break
               ;;
           "Node aktualisieren")
-              knoten_aktualisieren
+              Node_aktualisieren
               break
               ;;
           "Node entfernen")
-              knoten_entfernen
+              Node_entfernen
               break
               ;;
           "Beenden")
