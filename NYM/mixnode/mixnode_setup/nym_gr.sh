@@ -98,6 +98,8 @@ EOF
   sudo systemctl daemon-reload
   sudo systemctl enable nym-mixnode
   sudo systemctl restart nym-mixnode
+echo "Συγχαρητήρια! Το mixnode σας λειτουργεί. Ήρθε η ώρα να αναθέσετε τα tokens σε αυτό και να το προωθήσετε μεταξύ των φίλων σας."
+echo "Υποστηρίξτε και εκτιμήστε την ιδιωτικότητα που παρέχει το NYM."
 }
 
 # Ενημέρωση κόμβου
