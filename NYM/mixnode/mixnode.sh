@@ -39,23 +39,23 @@ read choice
 case $choice in
     1)
         curl -s -o nym_en.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_en.sh
-        bash nym_en.sh
+        [ $? -eq 0 ] && bash nym_en.sh || echo "Failed to download script"
         ;;
     2)
         curl -s -o nym_ind.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ind.sh
-        bash nym_ind.sh
+        [ $? -eq 0 ] && bash nym_ind.sh || echo "Failed to download script"
         ;;
     3)
         curl -s -o nym_du.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_du.sh
-        bash nym_du.sh
+        [ $? -eq 0 ] && bash nym_du.sh || echo "Failed to download script"
         ;;
     4)
         curl -s -o nym_ru.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_ru.sh
-        bash nym_ru.sh
+        [ $? -eq 0 ] && bash nym_ru.sh || echo "Failed to download script"
         ;;
     5)
         curl -s -o nym_esp.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode_setup/nym_esp.sh
-        bash nym_esp.sh
+        [ $? -eq 0 ] && bash nym_esp.sh || echo "Failed to download script"
         ;;
     6)
         echo "Exiting."
