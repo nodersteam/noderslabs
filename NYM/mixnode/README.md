@@ -38,4 +38,4 @@ curl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/tr
 chmod +x mixnode.sh
 ./mixnode.sh
 ```
-![GitHub Downloads](https://img.shields.io/github/downloads/nodersteam/noderslabs/total.svg)
+![GitHub Downloads](https://img.shields.io/github/downloads/nodersteam/noderslabs/NYM/total.svg)
