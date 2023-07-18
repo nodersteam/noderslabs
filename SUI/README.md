@@ -1,4 +1,4 @@
-![SUI Logo](https://github.com/nodersteam/picture/blob/main/suipic.png?raw=true)
+![SUI logo](https://github.com/nodersteam/picture/blob/main/suipic.png?raw=true)
 
 # SUI Project Repository
 
