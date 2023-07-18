@@ -33,6 +33,6 @@ Recognizing the global interest and participation in the Nym project, we have lo
 To download and run the script on your Linux server, use the following commands:
 
 ```bash
-wget https://github.com/nodersteam/noderslabs/raw/main/NYM/mixnode/mixnode.sh
+curl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode.sh
 chmod +x mixnode.sh
 ./mixnode.sh
