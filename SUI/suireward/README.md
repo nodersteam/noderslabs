@@ -48,6 +48,3 @@ To use the script, follow these steps:
     ```
 
 Please ensure you carefully follow these steps for a successful operation of the script. Feel free to raise any issues you encounter or suggest improvements via the repository's issue tracker.
-
-Check out our [Automated SUI Reward and Gas Voting Script](https://github.com/nodersteam/noderslabs/tree/main/SUI/suireward) to effortlessly manage rewards and participate in gas price voting in the SUI platform.
-
