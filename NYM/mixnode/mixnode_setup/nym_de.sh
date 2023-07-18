@@ -99,7 +99,7 @@ EOF
   sudo systemctl enable nym-mixnode
   sudo systemctl restart nym-mixnode
 echo "Herzlichen Glückwunsch! Ihr Mixnode läuft. Es ist Zeit, Tokens darauf zu delegieren und ihn bei Ihren Freunden zu bewerben."
-echo "Unterstützen Sie und schätzen Sie die Privatsphäre, die von NYM bereitgestellt wird."
+echo "Unterstützen und genießen Sie Datenschutz und Sicherheit im Internet von NYM!"
 }
 
 # Node aktualisieren
