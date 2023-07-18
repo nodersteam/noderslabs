@@ -28,11 +28,11 @@ sleep 1
 echo "Welcome to NYM Mixnode setup"
 echo "Please choose your language:"
 echo "1) English"
-echo "2) Indonesian"
-echo "3) German"
-echo "4) Russian"
-echo "5) Spanish"
-echo "6) Greek"
+echo "2) Indonesian (Bahasa Indonesia)"
+echo "3) German (Deutsch)"
+echo "4) Russian (Русский)"
+echo "5) Spanish (Español)"
+echo "6) Greek (Ελληνικά)"
 echo "7) Quit"
 
 read choice
