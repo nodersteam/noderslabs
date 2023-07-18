@@ -148,23 +148,23 @@ knoten_entfernen() {
 # Knoten Aktionsmenü
 while true; do
   PS3='Bitte geben Sie Ihre Wahl ein: '
-  optionen=("Knoten einrichten" "Knoten überprüfen" "Knoten aktualisieren" "Knoten entfernen" "Beenden")
+  optionen=("Node einrichten" "Node überprüfen" "Node aktualisieren" "Node entfernen" "Beenden")
   select opt in "${optionen[@]}"
   do
       case $opt in
-          "Knoten einrichten")
+          "Node einrichten")
               einrichtung_des_knotens
               break
               ;;
-          "Knoten überprüfen")
+          "Node überprüfen")
               status_ueberpruefen
               break
               ;;
-          "Knoten aktualisieren")
+          "Node aktualisieren")
               knoten_aktualisieren
               break
               ;;
-          "Knoten entfernen")
+          "Node entfernen")
               knoten_entfernen
               break
               ;;
