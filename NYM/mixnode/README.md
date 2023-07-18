@@ -27,6 +27,7 @@ Recognizing the global interest and participation in the Nym project, we have lo
 - German (Deutsch)
 - Russian (Русский)
 - Spanish (Español)
+- Greek (Ελληνικά)
 
 ## Downloading and Running the Script
 
