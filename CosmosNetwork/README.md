@@ -17,3 +17,5 @@ Within this repository, you'll find scripts, code, documentation, and other reso
 While we warmly welcome any feedback or questions about our contributions, we kindly ask that you respect the fact that this repository is not intended for public contributions. Our focus is on developing and refining our own contributions, and we may not have the capacity to manage and integrate external contributions.
 
 Please explore the repository and do not hesitate to get in touch if you have any questions or suggestions regarding our work. Your input is invaluable in helping us continue to contribute effectively to the Cosmos ecosystem.
+
+Explore our repository of helper scripts for Cosmos SDK projects [here](https://github.com/nodersteam/noderslabs/tree/main/CosmosNetwork/helperscripts).
