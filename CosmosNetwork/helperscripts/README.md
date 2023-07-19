@@ -5,6 +5,8 @@ This repository hosts general scripts that can be used in any project built on t
 
 Inside the repository, you'll find scripts, code, documentation, and other resources that we've developed as part of our work on Cosmos SDK projects. We warmly welcome any feedback or questions about our contributions, but kindly ask that you respect the fact that this repository is not intended for public contributions.
 
+One of the scripts available in this repository is the [takereward.sh script](https://github.com/nodersteam/noderslabs/tree/main/CosmosNetwork/helperscripts/takereward) that provides a convenient way to withdraw and send rewards in projects built on Cosmos SDK.
+
 Please explore the repository and do not hesitate to get in touch if you have any questions or suggestions regarding our work.
 
 ## Note
