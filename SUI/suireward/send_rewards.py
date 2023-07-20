@@ -32,10 +32,10 @@ def send_rewards_to_address():
 
         recipient_address = input("Enter the recipient address: ")
 
-        option = input("Enter 1 to send one reward or 2 to send all: ")
-        if option == '1':
+        option = input("Enter 'one' to send one reward or 'all' to send all: ")
+        if option == 'one':
             reward_id = input("Enter the reward ID to send: ")
-            if reward_id in filtered_objects:
+            if reward_id in existing_rewards:
                 # Here is the command to send rewards
                 command = f"sui client transfer --to {recipient_address} --object-id {reward_id} --gas-budget 19980000"
                 command_output = subprocess.run(command, shell=True, capture_output=True, text=True).stdout
@@ -44,12 +44,12 @@ def send_rewards_to_address():
                 if digest_line:
                     digest = digest_line.group(1)
                     print(f"Transaction Digest: {digest}")
-                    existing_rewards.remove(f"Object ID: {reward_id}\nBalance: {formatted_balance} SUI\n")
+                    existing_rewards.remove(reward_id)
                 else:
                     print("Error: Failed to retrieve transaction digest.")
             else:
                 print("Error: Invalid reward ID or reward does not have balance > 5 SUI")
-        elif option == '2':
+        elif option == 'all':
             for reward_info in existing_rewards:
                 reward_id = re.search(r'Object ID: (.*?)\n', reward_info).group(1)
                 balance = check_object_balance(reward_id)
@@ -64,7 +64,7 @@ def send_rewards_to_address():
                 else:
                     print(f"Error: Failed to retrieve transaction digest for {reward_id}.")
         else:
-            print("Invalid option. Please enter 1 or 2.")
+            print("Invalid option. Please enter 'one' or 'all'.")
 
         with open("rewardforsend.txt", "w") as f:
             for reward_info in existing_rewards:
