@@ -14,13 +14,13 @@ This Python script is a comprehensive voting management tool for projects built 
 ## Features
 The script provides the following functionality:
 
-- Project Management: Users can add, view, edit, or delete information related to a project. This includes the project's name, its API, and the associated wallet address.
+1. Project Management: Users can add, view, edit, or delete information related to a project. This includes the project's name, its API, and the associated wallet address.
 
-- Voting Check: Users can manually trigger a check for active votes on the projects. The script will display any active votes, along with pertinent information like proposal ID, title, voting start time, voting end time, and whether the associated wallet address has voted.
+2. Voting Check: Users can manually trigger a check for active votes on the projects. The script will display any active votes, along with pertinent information like proposal ID, title, voting start time, voting end time, and whether the associated wallet address has voted.
 
-- Scheduling: Users can set up automatic checks for active votes on a schedule. Options include checking every hour, every day, or every week.
+3. Scheduling: Users can set up automatic checks for active votes on a schedule. Options include checking every hour, every day, or every week.
 
-- Telegram Settings: Users can set or change the Telegram bot token and chat ID. Updates about active votes will be sent to the specified Telegram chat via the bot.
+4. Telegram Settings: Users can set or change the Telegram bot token and chat ID. Updates about active votes will be sent to the specified Telegram chat via the bot.
 
 ## Notes
 - Before running the script, users need to have Python installed on their machine.
