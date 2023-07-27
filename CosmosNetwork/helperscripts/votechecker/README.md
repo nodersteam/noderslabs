@@ -12,7 +12,7 @@ wget https://raw.githubusercontent.com/nodersteam/noderslabs/main/CosmosNetwork/
 ```
 2. In the terminal, navigate to the directory where the script is located.
 3. Run the script by typing `python3 cosmosvotechecker.py`.
-4. Follow the prompts in the command-line interface to perform different actions.
+4. Follow the prompts in the command-line interface to perform different actions. Don't forget to set TG variables in paragraphs 8 and 9 for correct sending of voting information
 
 ## Script Functionality
 The script provides the following functionality:
