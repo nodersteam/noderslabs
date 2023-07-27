@@ -6,7 +6,10 @@
 This Python script is a comprehensive voting management tool for projects built on Cosmos SDK. It provides an interactive command-line interface for adding, viewing, editing, and deleting project information. Additionally, the script checks for active votes for these projects, either manually or on a set schedule, and sends updates to a specified Telegram chat via a bot.
 
 ## Installation and Usage
-1. Save the script to your machine.
+1. Save the script to your machine
+```
+wget https://raw.githubusercontent.com/nodersteam/noderslabs/main/CosmosNetwork/helperscripts/votechecker/cosmosvotechecker.py
+```
 2. In the terminal, navigate to the directory where the script is located.
 3. Run the script by typing `python3 cosmosvotechecker.py`.
 4. Follow the prompts in the command-line interface to perform different actions.
