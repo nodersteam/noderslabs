@@ -9,6 +9,7 @@ This Python script is a comprehensive voting management tool for projects built 
 1. Save the script to your machine
 
 `wget https://raw.githubusercontent.com/nodersteam/noderslabs/main/CosmosNetwork/helperscripts/votechecker/cosmosvotechecker.py`
+
 2. In the terminal, navigate to the directory where the script is located.
 3. Run the script by typing `python3 cosmosvotechecker.py`.
 4. Follow the prompts in the command-line interface to perform different actions. Don't forget to set TG variables in paragraphs 8 and 9 for correct sending of voting information
