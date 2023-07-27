@@ -28,7 +28,7 @@ The script provides the following functionality:
 - Project information is stored locally in a text file named `projectsinfo.txt`. If the file does not exist when the script is run, it will be created automatically.
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary> Available APIs </summary>
   
   Here is the list of APIs categorized by their respective projects:
 
