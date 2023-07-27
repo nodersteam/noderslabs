@@ -8,7 +8,7 @@ This Python script is a comprehensive voting management tool for projects built 
 ## Installation and Usage
 1. Save the script to your machine.
 2. In the terminal, navigate to the directory where the script is located.
-3. Run the script by typing `python3 script_name.py`.
+3. Run the script by typing `python3 cosmosvotechecker.py`.
 4. Follow the prompts in the command-line interface to perform different actions.
 
 ## Features
