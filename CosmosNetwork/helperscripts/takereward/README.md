@@ -1,6 +1,6 @@
 ![SOSMOS LOGO](https://github.com/nodersteam/picture/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-07-19%20105624.png?raw=true)
 
-# Withdrawing and Sending Rewards
+# Withdrawing and Sending Rewards Script
 
 This script provides a convenient way to withdraw and send rewards in projects built on Cosmos SDK. It allows the user to collect rewards from the validator, check the validator's wallet balance, and send the reward to a specified recipient address.
 
