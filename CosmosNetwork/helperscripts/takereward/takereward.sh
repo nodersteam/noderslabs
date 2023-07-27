@@ -283,7 +283,7 @@ check_active_votings() {
 
     for api_version in 'v1beta1' 'v1'; do
         # Form the API request URL
-        API_REQUEST_URL="$API_ADDRESS/cosmos/gov/$api_version/proposals?pagination.limit=451"
+        API_REQUEST_URL="${API_ADDRESS}cosmos/gov/${api_version}/proposals?pagination.limit=800"
 
         # Make the API request and save the response in a variable
         API_RESPONSE=$(curl -s "$API_REQUEST_URL")
