@@ -26,3 +26,45 @@ The script provides the following functionality:
 - Before running the script, users need to have Python installed on their machine.
 - Users need to have a Telegram bot set up to use the script's Telegram features.
 - Project information is stored locally in a text file named `projectsinfo.txt`. If the file does not exist when the script is run, it will be created automatically.
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  Here is the list of APIs categorized by their respective projects:
+
+1. Osmosis: [API](https://osmosis-api.polkachu.com)
+2. Desmos: [API](https://desmos-api.panthea.eu/)
+3. Stride: [API](https://stride-api.polkachu.com)
+4. Rebus: [API](https://api.mainnet.rebus.money:1317)
+5. Quicksilver: [API](https://api.quicksilver.stake-take.com)
+6. BitSong: [API](https://api-bitsong-ia.cosmosia.notional.ventures)
+7. Aura Mainnet: [API](https://lcd.aura.network)
+8. BeeZee: [API](https://rest.getbze.com)
+9. Dig: [API](https://api-1-dig.notional.ventures)
+10. Empower: [API](https://empower-api.polkachu.com)
+11. HAQQ: [API](https://m-s1-sdk.haqq.sh)
+12. Gitopia: [API](https://gitopia-api.polkachu.com)
+13. GenesisL1: [API](https://api.genesisl1.org)
+14. HumansAI Mainnet: [API](https://api.humans-mainnet.stake-take.com)
+15. Jackal Mainnet: [API](https://api.jackalprotocol.com)
+16. KiChain: [API](https://ki.api.ping.pub)
+17. Lambda: [API](https://lambda-api.jambulmerah.dev)
+18. MEME: [API](https://api-meme-1.meme.sx)
+19. Uptick Mainnet: [API](https://api.uptick.nodestake.top)
+20. ARKH: [API](https://api.arkh.nodestake.top)
+21. Realio: [API](https://rest.cosmos.directory/realio)
+22. ZetaChain Testnet: [API](https://zetachain-athens.blockpi.network/lcd/v1/public)
+23. OKP4: [API](https://api-t.okp4.nodestake.top)
+24. CrowdControl: [API](https://crowd-api.theamsolutions.info)
+25. Andromeda Testnet: [API](https://andromeda-testnet.api.kjnodes.com)
+26. DeFund: [API](https://api-t.defund.nodestake.top)
+27. Source: [API](https://api-t.source.nodestake.top)
+28. Androma Testnet: [API](https://androma-testnet-api.polkachu.com)
+29. Dymension: [API](https://api-t.dymension.nodestake.top)
+30. Lava Testnet: [API](https://api-t.lava.nodestake.top)
+31. Noria: [API](https://archive-lcd.noria.nextnet.zone)
+32. Babylone Testnet: [API](https://babylon-testnet.nodejumper.io:1317)
+33. CosmosHub: [API](https://lcd-cosmoshub.whispernode.com:443)
+
+  
+</details>
