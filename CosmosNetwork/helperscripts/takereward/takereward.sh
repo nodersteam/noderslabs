@@ -281,42 +281,44 @@ check_active_votings() {
         fi
     fi
 
-    # Form the API request URL
-    API_REQUEST_URL="$API_ADDRESS/cosmos/gov/v1beta1/proposals?pagination.limit=451"
+    for api_version in 'v1beta1' 'v1'; do
+        # Form the API request URL
+        API_REQUEST_URL="$API_ADDRESS/cosmos/gov/$api_version/proposals?pagination.limit=451"
 
-    # Make the API request and save the response in a variable
-    API_RESPONSE=$(curl -s "$API_REQUEST_URL")
+        # Make the API request and save the response in a variable
+        API_RESPONSE=$(curl -s "$API_REQUEST_URL")
 
-    # Check if the API response is empty
-    if [[ -z "$API_RESPONSE" ]]; then
-        echo "No active votings found."
-        return
-    fi
-
-    # Process the API response using jq
-    count=$(echo "$API_RESPONSE" | jq -r '.proposals | length')
-
-    if [[ "$count" -eq 0 ]]; then
-        echo "No active votings found."
-        return
-    fi
-
-for ((i = 0; i < count; i++)); do
-        status=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].status")
-
-        # Check if the status is "PROPOSAL_STATUS_VOTING_PERIOD"
-        if [[ "$status" != "PROPOSAL_STATUS_VOTING_PERIOD" ]]; then
-            continue  # Skip this voting if the status is not "PROPOSAL_STATUS_VOTING_PERIOD"
+        # Check if the API response is empty
+        if [[ -z "$API_RESPONSE" ]]; then
+            echo "No active votings found for API version $api_version."
+            continue
         fi
 
-        voting_id=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].proposal_id")
-        description=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].content.title")
-        voting_end_time=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].voting_end_time")
+        # Process the API response using jq
+        count=$(echo "$API_RESPONSE" | jq -r '.proposals | length')
 
-        echo "Voting ID: $voting_id"
-        echo "Description: $description"
-        echo "Voting End Time: $voting_end_time"
-        echo "----------------------"
+        if [[ "$count" -eq 0 ]]; then
+            echo "No active votings found for API version $api_version."
+            continue
+        fi
+
+        for ((i = 0; i < count; i++)); do
+            status=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].status")
+
+            # Check if the status is "PROPOSAL_STATUS_VOTING_PERIOD"
+            if [[ "$status" != "PROPOSAL_STATUS_VOTING_PERIOD" ]]; then
+                continue  # Skip this voting if the status is not "PROPOSAL_STATUS_VOTING_PERIOD"
+            fi
+
+            voting_id=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].proposal_id // .proposals[$i].id")
+            description=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].content.title // .proposals[$i].messages[0].content.title")
+            voting_end_time=$(echo "$API_RESPONSE" | jq -r ".proposals[$i].voting_end_time")
+
+            echo "Voting ID: $voting_id"
+            echo "Description: $description"
+            echo "Voting End Time: $voting_end_time"
+            echo "----------------------"
+        done
     done
 }
 
