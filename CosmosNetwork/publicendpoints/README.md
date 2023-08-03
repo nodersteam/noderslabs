@@ -15,11 +15,6 @@ This repository contains public API and RPC endpoints for numerous projects deve
 ## How to Use
 
 Simply browse the to find the public endpoints you need. The information is available for viewing and does not require cloning.
-<details>
-<summary>Mainnets</summary>
-<details>
-<summary>Testnets</summary>
-<details>
 
 ## Contributing
 
