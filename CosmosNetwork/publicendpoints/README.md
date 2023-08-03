@@ -574,4 +574,4 @@ If you have suggestions for improvement or updates to the data, please create an
 
 ## Contact Us
 
-If you have any questions or suggestions, please contact us through [issues](https://github.com/nodersteam/noderslabs/issues) or via email at `office@noders.team`
+If you have any questions or suggestions, please contact us through [issues](https://github.com/nodersteam/noderslabs/issues) or via email at `tech@noders.team`
