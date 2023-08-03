@@ -8,7 +8,7 @@ This repository contains public API and RPC endpoints for numerous projects deve
 
 ## Features
 
-- **Automatic Updates**: The list of public endpoints is automatically updated every 30 minutes.
+- **Automatic Updates**: The list of public endpoints is automatically updated every 1 hour.
 - **Wide Selection**: Covers the majority of networks within the Cosmos ecosystem.
 - **Easy Access**: Direct links to API and RPC endpoints, convenient for developers.
 
