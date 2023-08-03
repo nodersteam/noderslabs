@@ -4,7 +4,7 @@
 
 ## Description
 
-This repository contains public API and RPC endpoints for numerous projects developed on Cosmos SDK. It is a valuable resource for developers looking to find public endpoints for the majority of networks within the Cosmos ecosystem. The repository is automatically updated every 30 minutes to always provide up-to-date information.
+This repository contains public API and RPC endpoints for numerous projects developed on Cosmos SDK. It is a valuable resource for developers looking to find public endpoints for the majority of networks within the Cosmos ecosystem. The repository is automatically updated every 1 hour to always provide up-to-date information.
 
 ## Features
 
