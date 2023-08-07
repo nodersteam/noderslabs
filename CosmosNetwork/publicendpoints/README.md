@@ -1339,6 +1339,9 @@ RPC=51.81.185.118:26657
   <summary>Testnets</summary>
   
   Simply browse the testnets section to find the public endpoints you need for test networks.
+<!-- START_TESTNET -->
+  
+<!-- END_TESTNET -->
 </details>
 
 ## Contributing
