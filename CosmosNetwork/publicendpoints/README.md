@@ -120,941 +120,223 @@ This repository contains public API and RPC endpoints for numerous projects deve
   Simply browse the testnets section to find the public endpoints you need for test networks.
 <!-- START_TESTNET -->
 <details>
-<summary>Andromeda</summary>
+<summary>Zetachain</summary>
 
-- Moniker: **Moonbridge**
-- Latest block: **2510041**
-- RPC: **195.3.221.16:12757**
-- TxIndex: **off**
+```
+MONIKER: blockscout_zetachain_node2 INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=95.216.153.230:26657
 
----
+MONIKER: foreststaking INDEXER: on HEIGHT: 1125995 OPEN_API: Yes
+RPC=88.218.226.79:26657
+API_URL=88.218.226.79:1317
 
-- Moniker: **Firstcome**
-- Latest block: **2510041**
-- RPC: **161.97.148.146:60657**
-- TxIndex: **on**
-- API: **161.97.148.146:1317**
+MONIKER: node INDEXER: off HEIGHT: 1045200 OPEN_API: No
+RPC=135.181.216.54:3111
 
----
+MONIKER: zig INDEXER: on HEIGHT: 1125993 OPEN_API: Yes
+RPC=135.181.115.175:26657
+API_URL=135.181.115.175:1317
 
-- Moniker: **landeros**
-- Latest block: **2510041**
-- RPC: **213.239.207.175:42657**
-- TxIndex: **on**
+MONIKER: RockX INDEXER: off HEIGHT: 1125995 OPEN_API: Yes
+RPC=141.94.214.137:26657
+API_URL=141.94.214.137:1317
 
----
+MONIKER: ttp INDEXER: on HEIGHT: 1125993 OPEN_API: No
+RPC=142.132.202.87:26657
 
-- Moniker: **andromeda**
-- Latest block: **2510041**
-- RPC: **194.34.232.224:56657**
-- TxIndex: **off**
+MONIKER: node INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=5.9.60.44:31461
 
----
+MONIKER: bm-ex44 INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=46.4.15.110:26657
 
-- Moniker: **Munris**
-- Latest block: **2510041**
-- RPC: **65.21.170.3:32657**
-- TxIndex: **off**
+MONIKER: NJ-rpc INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=65.21.200.54:31657
 
----
+MONIKER: node INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=51.75.90.106:26657
 
-- Moniker: **RAMZES**
-- Latest block: **2510041**
-- RPC: **65.108.199.120:61357**
-- TxIndex: **on**
-- API: **65.108.199.120:1327**
+MONIKER: rocket INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=161.97.107.122:41657
 
----
+MONIKER: HashQuark INDEXER: on HEIGHT: 1125995 OPEN_API: Yes
+RPC=152.32.150.236:26657
+API_URL=152.32.150.236:1317
 
+MONIKER: HashQuark INDEXER: on HEIGHT: 1125995 OPEN_API: Yes
+RPC=152.32.150.236:26657
+API_URL=152.32.150.236:1317
+
+MONIKER: ProtofireDAO INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=3.233.186.130:26657
+
+MONIKER: node INDEXER: on HEIGHT: 1125995 OPEN_API: No
+RPC=15.235.160.84:31461
+
+MONIKER: BlockPI Network INDEXER: on HEIGHT: 1120187 OPEN_API: No
+RPC=15.235.160.207:26657
+
+MONIKER: BlockPI Network INDEXER: on HEIGHT: 1120187 OPEN_API: No
+RPC=15.235.160.207:26657
+
+MONIKER: STAKECRAFT INDEXER: on HEIGHT: 1125995 OPEN_API: Yes
+RPC=65.108.124.57:25657
+API_URL=65.108.124.57:1317
+
+MONIKER: sentry2-us-east-1 INDEXER: on HEIGHT: 1125996 OPEN_API: Yes
+RPC=18.210.106.52:26657
+API_URL=18.210.106.52:1317
+
+MONIKER: sentry1-us-east-1 INDEXER: on HEIGHT: 1125998 OPEN_API: Yes
+RPC=3.218.170.198:26657
+API_URL=3.218.170.198:1317
+
+MONIKER: sentry0-us-east-1 INDEXER: on HEIGHT: 1125996 OPEN_API: Yes
+RPC=34.239.99.239:26657
+API_URL=34.239.99.239:1317
+
+MONIKER: Yuriy78 INDEXER: on HEIGHT: 14417 OPEN_API: No
+RPC=65.108.66.247:26657
+
+MONIKER: archive1 INDEXER: on HEIGHT: 4257280 OPEN_API: No
+RPC=44.212.168.142:26657
+
+MONIKER: api2-us-east-1 INDEXER: on HEIGHT: 4257280 OPEN_API: No
+RPC=44.198.196.121:26657
+
+MONIKER: Yuriy78 INDEXER: on HEIGHT: 14417 OPEN_API: No
+RPC=65.108.66.247:26657
+
+MONIKER: archive0 INDEXER: on HEIGHT: 4257280 OPEN_API: No
+RPC=35.170.251.63:26657
+
+MONIKER: api0 INDEXER: on HEIGHT: 4257280 OPEN_API: No
+RPC=52.6.81.202:26657
+
+MONIKER: api1 INDEXER: on HEIGHT: 4257280 OPEN_API: No
+RPC=44.210.204.28:26657
+
+MONIKER: api0-us-east-1 INDEXER: on HEIGHT: 1126001 OPEN_API: No
+RPC=34.199.35.194:26657
+
+MONIKER: archive2 INDEXER: on HEIGHT: 3989846 OPEN_API: No
+RPC=18.213.164.140:26657
+
+MONIKER: validator2 INDEXER: on HEIGHT: 4257281 OPEN_API: No
+RPC=52.206.155.197:26657
+
+MONIKER: validator0 INDEXER: on HEIGHT: 4257281 OPEN_API: No
+RPC=34.194.62.47:26657
+
+MONIKER: banana INDEXER: on HEIGHT: 1126001 OPEN_API: No
+RPC=91.194.30.204:28657
+
+MONIKER: validator3 INDEXER: on HEIGHT: 4257281 OPEN_API: No
+RPC=54.144.102.58:26657
+
+MONIKER: sentry1-us-west-2 INDEXER: on HEIGHT: 1126001 OPEN_API: No
+RPC=35.162.231.114:26657
+
+MONIKER: sentry1-ap-southeast-1 INDEXER: on HEIGHT: 1126000 OPEN_API: No
+RPC=54.254.133.239:26657
+
+MONIKER: sentry1-eu-west-1 INDEXER: on HEIGHT: 1126000 OPEN_API: No
+RPC=34.253.137.241:26657
+
+MONIKER: validator0 INDEXER: on HEIGHT: 4257281 OPEN_API: No
+RPC=34.194.62.47:26657
+
+MONIKER: validator4 INDEXER: on HEIGHT: 4257281 OPEN_API: No
+RPC=34.194.74.157:26657
+
+MONIKER: sentry0-eu-west-1 INDEXER: on HEIGHT: 1126001 OPEN_API: No
+RPC=54.77.180.134:26657
+
+MONIKER: validator1 INDEXER: on HEIGHT: 4257281 OPEN_API: No
+RPC=3.221.179.78:26657
+
+MONIKER: sentry0-us-west-2 INDEXER: on HEIGHT: 1126000 OPEN_API: No
+RPC=44.236.174.26:26657
+```
 </details>
 
 <details>
-<summary>Cascadia</summary>
+<summary>Babylon</summary>
 
-- Moniker: **katerinakravcenko1999**
-- Latest block: **1822781**
-- RPC: **5.9.138.165:18657**
-- TxIndex: **off**
+```
+MONIKER: B-Harvest INDEXER: on HEIGHT: 558616 OPEN_API: No
+RPC=141.95.97.28:15557
 
----
+MONIKER: anaraydinli INDEXER: on HEIGHT: 558616 OPEN_API: No
+RPC=65.109.232.224:31657
 
-- Moniker: **seredagennadij80**
-- Latest block: **1822781**
-- RPC: **176.9.0.48:18657**
-- TxIndex: **off**
+MONIKER: B-Harvest INDEXER: on HEIGHT: 558617 OPEN_API: No
+RPC=141.95.97.28:15557
 
----
+MONIKER: Nodeist INDEXER: on HEIGHT: 558617 OPEN_API: No
+RPC=65.109.82.112:16457
 
-- Moniker: **ivancenkou31**
-- Latest block: **1822781**
-- RPC: **148.251.54.202:18657**
-- TxIndex: **off**
+MONIKER: anaraydinli INDEXER: on HEIGHT: 558617 OPEN_API: No
+RPC=65.109.232.224:31657
 
----
+MONIKER: RPC INDEXER: on HEIGHT: 558617 OPEN_API: Yes
+RPC=65.108.194.111:32657
+API_URL=65.108.194.111:1317
 
-- Moniker: **oksidmitrenko95**
-- Latest block: **1822781**
-- RPC: **168.119.144.251:18657**
-- TxIndex: **off**
+MONIKER: [NODERS]TEAM INDEXER: on HEIGHT: 558617 OPEN_API: No
+RPC=49.12.84.248:16657
 
----
+MONIKER: Moonbridge INDEXER: off HEIGHT: 558617 OPEN_API: No
+RPC=195.3.221.16:12857
 
-- Moniker: **kramarenkoanatolyi1**
-- Latest block: **1822781**
-- RPC: **65.21.77.215:18657**
-- TxIndex: **off**
+MONIKER: babylon INDEXER: on HEIGHT: 558619 OPEN_API: Yes
+RPC=3.18.176.128:26657
+API_URL=3.18.176.128:1317
 
----
+MONIKER: ksalab INDEXER: on HEIGHT: 558619 OPEN_API: Yes
+RPC=65.109.88.254:38657
+API_URL=65.109.88.254:1317
 
-- Moniker: **kostantintarasuk27**
-- Latest block: **1822781**
-- RPC: **78.46.37.253:18657**
-- TxIndex: **off**
+MONIKER: UTSA_guide INDEXER: on HEIGHT: 558622 OPEN_API: No
+RPC=65.108.206.118:61457
 
----
+MONIKER: Validavia INDEXER: off HEIGHT: 558622 OPEN_API: No
+RPC=83.53.144.175:40657
+```
+</details>
 
-- Moniker: **oleksandrmirosnicenko96**
-- Latest block: **1822781**
-- RPC: **148.251.69.196:18657**
-- TxIndex: **off**
+<details>
+<summary>Quicksilver</summary>
 
----
+```
+MONIKER: Loona.Systems INDEXER: off HEIGHT: 1640794 OPEN_API: No
+RPC=95.217.83.28:26637
 
-- Moniker: **seredavasil64**
-- Latest block: **1822781**
-- RPC: **135.181.216.25:18657**
-- TxIndex: **off**
+MONIKER: Firstcome INDEXER: off HEIGHT: 1640794 OPEN_API: No
+RPC=31.220.84.183:19657
 
----
+MONIKER: landeros INDEXER: off HEIGHT: 1640803 OPEN_API: No
+RPC=65.21.95.180:37657
 
-- Moniker: **sergienkoivan1979**
-- Latest block: **1822781**
-- RPC: **95.217.119.251:18657**
-- TxIndex: **off**
+MONIKER: Staketab INDEXER: on HEIGHT: 1640809 OPEN_API: Yes
+RPC=65.108.204.119:31657
+API_URL=65.108.204.119:1317
 
----
+MONIKER: Stakely.io INDEXER: on HEIGHT: 1640809 OPEN_API: No
+RPC=65.108.79.246:26674
 
-- Moniker: **galinakramarenko78**
-- Latest block: **1822781**
-- RPC: **144.76.225.25:18657**
-- TxIndex: **off**
+MONIKER: STAVR-Service INDEXER: off HEIGHT: 1640810 OPEN_API: No
+RPC=78.47.198.121:21027
 
----
+MONIKER: testval02 INDEXER: on HEIGHT: 1640810 OPEN_API: No
+RPC=65.108.65.94:26657
 
-- Moniker: **kramarchykivan**
-- Latest block: **1822781**
-- RPC: **78.46.16.232:18657**
-- TxIndex: **off**
+MONIKER: testval01 INDEXER: on HEIGHT: 1640811 OPEN_API: No
+RPC=65.108.13.176:26657
 
----
-
-- Moniker: **dmitrenkomihajlo96**
-- Latest block: **1822781**
-- RPC: **144.76.186.196:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **serg1enko**
-- Latest block: **1822781**
-- RPC: **159.69.142.175:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **WebSpace**
-- Latest block: **1822781**
-- RPC: **65.21.244.158:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ikravcuk051**
-- Latest block: **1822781**
-- RPC: **95.217.105.41:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **Zakharchykartur**
-- Latest block: **1822781**
-- RPC: **116.202.246.101:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **vslkramarenko**
-- Latest block: **1822781**
-- RPC: **135.181.215.124:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ponomarchyk0**
-- Latest block: **1822781**
-- RPC: **157.90.128.245:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **Nodeist**
-- Latest block: **1822781**
-- RPC: **65.109.82.112:28657**
-- TxIndex: **off**
-
----
-
-- Moniker: **evgenshinkarenko1**
-- Latest block: **1822781**
-- RPC: **195.201.242.237:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **mirosnicenkooleksandr00**
-- Latest block: **1822781**
-- RPC: **135.181.177.171:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **pavlukgrigorij8**
-- Latest block: **1822781**
-- RPC: **116.202.232.15:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **Melnicenkovo**
-- Latest block: **1822781**
-- RPC: **135.181.138.231:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **AlxVoy**
-- Latest block: **1822781**
-- RPC: **65.109.93.152:35657**
-- TxIndex: **on**
-
----
-
-- Moniker: **lisenkoanatolij89**
-- Latest block: **1822781**
-- RPC: **5.9.143.92:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **petrenkoevgen72**
-- Latest block: **1822781**
-- RPC: **135.181.218.42:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **mcw01**
-- Latest block: **1412480**
-- RPC: **185.249.225.160:40657**
-- TxIndex: **off**
-
----
-
-- Moniker: **bodnarenkovalentin0**
-- Latest block: **1822781**
-- RPC: **167.235.116.219:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **antonenkomaksim09**
-- Latest block: **1822781**
-- RPC: **65.108.2.202:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **lisenkotarass**
-- Latest block: **1822781**
-- RPC: **135.181.130.43:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **sevcenkoboleslav**
-- Latest block: **1822781**
-- RPC: **65.21.205.241:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ponomarchykivann**
-- Latest block: **1822781**
-- RPC: **135.181.219.242:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **bodnarenkoroman94**
-- Latest block: **1822781**
-- RPC: **144.76.225.172:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **vasilchukoleksandr91**
-- Latest block: **1822781**
-- RPC: **65.21.202.160:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **petrenkoleonid93**
-- Latest block: **1822781**
-- RPC: **95.216.245.112:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ponomarenkostanislav35**
-- Latest block: **1822781**
-- RPC: **95.217.56.91:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **romancenkoalla9**
-- Latest block: **1822781**
-- RPC: **65.21.74.171:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **tarasukjosip**
-- Latest block: **1822781**
-- RPC: **95.217.105.54:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **pantonenko94**
-- Latest block: **1822781**
-- RPC: **65.21.225.208:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **lisenkoyan96**
-- Latest block: **1822781**
-- RPC: **135.181.216.13:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **BodnarenkoMihajlo**
-- Latest block: **1822781**
-- RPC: **88.198.57.90:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **petrenkor565**
-- Latest block: **1822781**
-- RPC: **65.21.226.161:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ivancenkotimofij**
-- Latest block: **1822781**
-- RPC: **148.251.22.252:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **vsevolodbrovarenko**
-- Latest block: **1822781**
-- RPC: **135.181.179.228:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **kravchykluda72**
-- Latest block: **1822781**
-- RPC: **135.181.138.212:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **kramarenkogennadij47**
-- Latest block: **1822781**
-- RPC: **78.46.70.62:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **OleksandrTarasuk**
-- Latest block: **1822781**
-- RPC: **135.181.141.22:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **panasukvalentin95**
-- Latest block: **1822781**
-- RPC: **95.217.89.106:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **timofijv1**
-- Latest block: **1822781**
-- RPC: **65.21.230.119:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **volodimirpanasuk26**
-- Latest block: **1822781**
-- RPC: **65.21.199.97:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **gnndjsereda**
-- Latest block: **1822781**
-- RPC: **65.21.205.228:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **petrenkoboris431**
-- Latest block: **1822781**
-- RPC: **46.4.29.251:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **shinkarenkom82**
-- Latest block: **1822781**
-- RPC: **65.21.141.99:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **oleksandrbrovarenko**
-- Latest block: **1822781**
-- RPC: **88.99.146.118:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **tamaramelnicenko079**
-- Latest block: **1822781**
-- RPC: **65.21.91.203:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ivancenkovsevolod89**
-- Latest block: **1822781**
-- RPC: **65.21.141.248:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ugaenn**
-- Latest block: **1822781**
-- RPC: **46.4.90.188:26657**
-- TxIndex: **on**
-
----
-
-- Moniker: **ivanchenkotarass0**
-- Latest block: **1822781**
-- RPC: **135.181.213.209:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **brovarenkomiroslav984**
-- Latest block: **1822781**
-- RPC: **135.181.214.174:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ivaanpetrenko**
-- Latest block: **1822781**
-- RPC: **135.181.136.97:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **mirosnicenkomarina15**
-- Latest block: **1822781**
-- RPC: **95.216.242.84:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **Sevcukivann**
-- Latest block: **1822781**
-- RPC: **88.198.48.112:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **dmitrenkosvitlana082**
-- Latest block: **1822781**
-- RPC: **116.202.225.84:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **josipkramarenko**
-- Latest block: **1822781**
-- RPC: **95.217.73.167:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ivancenkor91**
-- Latest block: **1822781**
-- RPC: **95.216.20.250:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **grigorijmrsncnk**
-- Latest block: **1822781**
-- RPC: **135.181.215.215:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **Nodejumper**
-- Latest block: **1822781**
-- RPC: **65.21.200.54:38657**
-- TxIndex: **on**
-
----
-
-- Moniker: **vovagnatuk91**
-- Latest block: **1822781**
-- RPC: **95.216.74.119:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **panasykroman99**
-- Latest block: **1822781**
-- RPC: **95.216.247.51:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **vsinkarenko961**
-- Latest block: **1822781**
-- RPC: **65.108.44.238:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **evgenvasilcuk9**
-- Latest block: **1822781**
-- RPC: **65.21.226.159:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **vasilenkoruslan89**
-- Latest block: **1822781**
-- RPC: **65.21.141.104:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **josipbrovarenko**
-- Latest block: **1822781**
-- RPC: **195.201.107.177:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **mikitukevgen72**
-- Latest block: **1822781**
-- RPC: **78.46.19.238:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **gponomarenko890**
-- Latest block: **1822781**
-- RPC: **95.217.61.47:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **test**
-- Latest block: **1822781**
-- RPC: **89.252.188.42:40657**
-- TxIndex: **off**
-
----
-
-- Moniker: **SRG0Z10**
-- Latest block: **1822781**
-- RPC: **46.4.68.113:21457**
-- TxIndex: **on**
-
----
-
-- Moniker: **lisenkolev98**
-- Latest block: **1822781**
-- RPC: **65.21.229.169:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **katerinabrovarcuk977**
-- Latest block: **1822781**
-- RPC: **65.21.229.150:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **n1klasnilsson**
-- Latest block: **1822781**
-- RPC: **46.4.24.116:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **sergienkojosip**
-- Latest block: **1822781**
-- RPC: **195.201.164.89:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **timofijsevcuk99**
-- Latest block: **1822781**
-- RPC: **159.69.56.78:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **volodimirponomarcuk0**
-- Latest block: **1822781**
-- RPC: **95.216.245.181:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **danilomrsncnk**
-- Latest block: **1822781**
-- RPC: **65.108.43.190:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **vasilcukmarina74**
-- Latest block: **1822781**
-- RPC: **95.217.87.23:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **gnatyk940**
-- Latest block: **1822781**
-- RPC: **65.21.91.248:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **valentinsergienko35**
-- Latest block: **1822781**
-- RPC: **88.198.14.152:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **kravchykb0**
-- Latest block: **1822781**
-- RPC: **95.217.117.212:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **melnicenkoruslan112**
-- Latest block: **1822781**
-- RPC: **135.181.210.122:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **m_tamara**
-- Latest block: **1822781**
-- RPC: **188.40.99.213:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ponomarchyk61**
-- Latest block: **1822781**
-- RPC: **95.217.75.29:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **shevcykevgen**
-- Latest block: **1822781**
-- RPC: **116.202.193.198:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **shevchykvitaliy3**
-- Latest block: **1822781**
-- RPC: **213.133.97.154:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **innamelnichenko0**
-- Latest block: **1822781**
-- RPC: **135.181.72.183:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **OleksijGnatuk**
-- Latest block: **1822781**
-- RPC: **65.21.199.185:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **tarasukviktorr0**
-- Latest block: **1822781**
-- RPC: **95.217.58.231:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **zaharcukalex87**
-- Latest block: **1822781**
-- RPC: **65.21.141.101:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **valerijponomarenko080**
-- Latest block: **1822781**
-- RPC: **88.99.115.105:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **gennadijantonenko7**
-- Latest block: **1822781**
-- RPC: **5.9.111.153:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **sergijivancenko07**
-- Latest block: **1822781**
-- RPC: **213.133.110.82:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **Danibro**
-- Latest block: **1822781**
-- RPC: **138.201.18.44:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **UTSA_guide**
-- Latest block: **1822781**
-- RPC: **95.217.11.20:26657**
-- TxIndex: **off**
-- API: **95.217.11.20:1317**
-
----
-
-- Moniker: **ponomarchyk4**
-- Latest block: **1822781**
-- RPC: **95.217.144.105:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **kirilsevcenko96**
-- Latest block: **1822781**
-- RPC: **135.181.210.94:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **antonenko0yra**
-- Latest block: **1822781**
-- RPC: **65.21.232.144:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **dmitrenkodmitro07**
-- Latest block: **1822781**
-- RPC: **65.21.123.218:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **timofijponomarcuk**
-- Latest block: **1822781**
-- RPC: **95.217.88.248:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **brovarenkogennadij285**
-- Latest block: **1822781**
-- RPC: **195.201.108.179:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **isevcuk085**
-- Latest block: **1822781**
-- RPC: **178.63.9.185:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **volodimirpetrenko89**
-- Latest block: **1822781**
-- RPC: **65.21.230.109:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **evgenvasilenko91**
-- Latest block: **1822781**
-- RPC: **65.21.199.74:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **romancenkovasil**
-- Latest block: **1822781**
-- RPC: **135.181.219.252:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **romancenkoviktor2001**
-- Latest block: **1822781**
-- RPC: **78.46.97.208:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **NodexPlus**
-- Latest block: **1818003**
-- RPC: **91.107.217.104:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **kravcukfedir84**
-- Latest block: **1822781**
-- RPC: **65.109.19.117:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **antonshinkarenko09**
-- Latest block: **1822781**
-- RPC: **95.217.85.254:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **seredaviktoria86**
-- Latest block: **1822781**
-- RPC: **95.217.104.110:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **zaharcukstanislav79**
-- Latest block: **1822781**
-- RPC: **135.181.137.189:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **lisenkolev9**
-- Latest block: **1822781**
-- RPC: **65.21.123.210:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **ksalab**
-- Latest block: **1822781**
-- RPC: **65.109.88.254:33657**
-- TxIndex: **off**
-- API: **65.109.88.254:1317**
-
----
-
-- Moniker: **petrenkog091**
-- Latest block: **1822781**
-- RPC: **65.109.109.60:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **AlxVoy**
-- Latest block: **1822781**
-- RPC: **65.109.93.152:35657**
-- TxIndex: **on**
-
----
-
-- Moniker: **mikitukoleksij71**
-- Latest block: **1822781**
-- RPC: **135.181.160.188:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **oksanamikituk36**
-- Latest block: **1822781**
-- RPC: **65.21.75.30:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **andriyyshevchenko98**
-- Latest block: **1822781**
-- RPC: **95.217.205.45:18657**
-- TxIndex: **off**
-
----
-
-- Moniker: **n1klasnilsson**
-- Latest block: **1822781**
-- RPC: **46.4.24.116:18657**
-- TxIndex: **off**
-
----
-
+MONIKER: testval02 INDEXER: on HEIGHT: 1640818 OPEN_API: No
+RPC=65.108.65.94:26657
+```
 </details>
 
 <!-- END_TESTNET -->
