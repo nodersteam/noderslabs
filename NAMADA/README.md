@@ -25,12 +25,12 @@ The script automatically fetches and showcases:
 - **Exit**: Option to close the script.
 
 ## Getting Started
-(You can add installation or setup details here, if necessary)
+`wget https://raw.githubusercontent.com/nodersteam/noderslabs/main/NAMADA/namada.sh`
 
 ## Usage
 To start the script, navigate to the directory containing the script and run:
 
-`namada.sh`
+`./namada.sh`
 
 ## Support
 For any issues or support, please contact [NODERS]TEAM.
