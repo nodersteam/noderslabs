@@ -386,7 +386,7 @@ namada wallet address gen --alias $WALLET_NAME --unsafe-dont-encrypt
     echo "PLEASE NOTE!"
     echo "You can proceed with further actions after the node is fully synchronized."
     echo "Synchronization status you can check in the Node Status Check menu"
-    
+    echo "To successfully initialize your validator, you first need to request tokens to your wallet and then delegate those tokens to your validator"
 }
 
 installNode
