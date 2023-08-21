@@ -1,3 +1,5 @@
+![NAMADA](https://github.com/nodersteam/picture/blob/main/1_TRTbBismx0_kdvoGZz8-8g.gif?raw=true)
+
 # NAMADA Node Installation Menu
 
 This is a smart script developed by the [NODERS]TEAM to simplify the management and monitoring of the NAMADA node.
