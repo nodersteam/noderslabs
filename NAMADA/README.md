@@ -28,7 +28,7 @@ The script automatically fetches and showcases:
 ## Usage
 To start the script, navigate to the directory containing the script and run:
 
-(Replace `namada.sh` with the actual name of the script)
+`namada.sh`
 
 ## Support
 For any issues or support, please contact [NODERS]TEAM.
