@@ -28,7 +28,7 @@ The script automatically fetches and showcases:
 <pre>
 sudo apt-get update
 sudo apt-get install subversion
-svn checkout https://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript"
+svn checkout https://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript
 </pre>
 
 ## Usage
