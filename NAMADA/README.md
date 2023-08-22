@@ -34,7 +34,10 @@ svn checkout https://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript
 ## Usage
 To start the script, navigate to the directory containing the script and run:
 
-`./namada.sh`
+<pre>
+cd namadascript
+. menu.sh
+</pre>
 
 ## Support
 For any issues or support, please contact [NODERS]TEAM.
