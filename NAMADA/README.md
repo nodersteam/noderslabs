@@ -25,7 +25,10 @@ The script automatically fetches and showcases:
 - **Exit**: Option to close the script.
 
 ## Getting Started
-`wget https://raw.githubusercontent.com/nodersteam/noderslabs/main/NAMADA/namada.sh`
+`sudo apt-get update
+sudo apt-get install subversion
+svn checkout https://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript
+`
 
 ## Usage
 To start the script, navigate to the directory containing the script and run:
