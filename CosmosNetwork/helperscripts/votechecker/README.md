@@ -6,12 +6,12 @@
 This Python script is a comprehensive voting management tool for projects built on Cosmos SDK. It provides an interactive command-line interface for adding, viewing, editing, and deleting project information. Additionally, the script checks for active votes for these projects, either manually or on a set schedule, and sends updates to a specified Telegram chat via a bot.
 
 ## Install Python
-`
+```
 sudo apt update
 sudo apt upgrade
 sudo apt install python3 python3-pip
 pip3 install requests python-dateutil schedule
-`
+```
 
 ## Installation and Usage
 1. Save the script to your machine
