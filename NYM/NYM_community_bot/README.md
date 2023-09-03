@@ -1,3 +1,5 @@
+![Lava Provider Logo](https://github.com/nodersteam/picture/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-07-18%20134733.png?raw=true)
+
 # NYM_community_bot serves the following functions:
 
 1. It provides information about the NYM project in different languages, including project descriptions, documentation links, installation scripts, and community Twitter links.
