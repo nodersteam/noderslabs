@@ -1,0 +1,104 @@
+# Import libraries
+import discord
+from discord_slash import SlashCommand, SlashContext
+
+# Create a bot instance
+bot = discord.Client(intents=discord.Intents.all())
+
+# Create a SlashCommand instance
+slash = SlashCommand(bot, sync_commands=True)
+
+# Create a dictionary with outputs in different languages
+outputs = {
+    "English": {
+        "project_description": "NYM - the next generation of privacy infrastructure. NYM is an open-source, decentralized security system that provides a comprehensive privacy framework for applications, services, and blockchains. NYM allows users and developers to have strong protection against private data, including metadata surveillance at the network traffic level, as well as the authentication and payment levels. Moreover, NYM is a permissionless protocol created to prevent data leakage from other internet protocols. This project offers a privacy solution that gives users the ability to safeguard data in large quantities.\n\nNYM Links\nOfficial Website [https://nymtech.net/]\nDiscord [https://discord.com/invite/nym]\nTwitter [https://twitter.com/nymproject]\nCommunity Twitter [https://twitter.com/NYM_Ecosystem]\nGitHub [https://github.com/nymtech]\nTelegram [https://t.me/nymchan]\nYouTube [https://www.youtube.com/nymtech]\nMedium [https://medium.com/nymtech]",
+        "documentation": "You can find the documentation here:\n[https://nymtech.net/docs/]",
+        "installation_script": "You can use the [NODERS]TEAM script to easily set up a mixnet node. Paste the following command into the terminal:\n\ncurl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode.sh\nchmod +x mixnode.sh\n./mixnode.sh",
+        "community_twitter": "Follow Twitter for the latest updates and news:\n[https://twitter.com/NYM_Ecosystem]"
+    },
+    "Deutsch": {
+        "project_description": "NYM - die nächste Generation der Datenschutzinfrastruktur. NYM ist ein quelloffenes, dezentralisiertes Sicherheitssystem, das einen umfassenden Datenschutzrahmen für Anwendungen, Dienste und Blockchains bietet. NYM ermöglicht es Nutzern und Entwicklern, sich effektiv vor der Überwachung privater Daten zu schützen, einschließlich Metadatenüberwachung auf Netzwerkverkehrsebene sowie auf den Ebenen der Authentifizierung und Bezahlung. Darüber hinaus ist NYM ein genehmigungsfreies Protokoll, das darauf abzielt, Datenverluste aus anderen Internetprotokollen zu verhindern. Dieses Projekt offeriert eine Datenschutzlösung, die den Nutzern die Möglichkeit bietet, Daten in großem Umfang zu sichern.\n\nNYM Links\nOffizielle Website [https://nymtech.net/]\nDiscord [https://discord.com/invite/nym]\nTwitter [https://twitter.com/nymproject]\nCommunity Twitter [https://twitter.com/NYM_DE]\nGitHub [https://github.com/nymtech]\nTelegram [https://t.me/nymchan]\nYouTube [https://www.youtube.com/nymtech]\nMedium [https://medium.com/nymtech]",
+        "documentation": "Sie können die Dokumentation hier finden:\n[https://nymtech.net/docs/]",
+        "installation_script": "Немецкий (Deutsch): "Sie können das [NODERS]TEAM-Skript verwenden, um einfach einen Mixnet-Knoten einzurichten. Fügen Sie den folgenden Befehl in das Terminal ein:\n\ncurl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode.sh\nchmod +x mixnode.sh\n./mixnode.sh",
+        "community_twitter": "Folgen Sie uns auf Twitter für die neuesten Updates und Nachrichten:\n[https://twitter.com/NYM_DE]"
+    },
+    "Ελληνικά (Elliniká)": {
+        "project_description": "NYM - η επόμενη γενιά της υποδομής ιδιωτικότητας. Το NYM είναι ένα ανοιχτό, αποκεντρωμένο σύστημα ασφάλειας που παρέχει ένα ολοκληρωμένο πλαίσιο ιδιωτικότητας για εφαρμογές, υπηρεσίες και μπλοκχέιν. Το NYM επιτρέπει στους χρήστες και στους προγραμματιστές να έχουν ισχυρή προστασία ενάντια σε ιδιωτικά δεδομένα, συμπεριλαμβάνομένης της επιτήρησης μεταδεδομένων στο επίπεδο της κυκλοφορίας δικτύου, καθώς και στα επίπεδα της ταυτοποίησης και της πληρωμής. Επιπλέον, το NYM είναι ένα πρωτόκολλο χωρίς άδεια, που δημιουργήθηκε για να αποτρέψει τη διαρροή δεδομένων από άλλα πρωτόκολλα διαδικτύου. Αυτό το έργο προσφέρει μια λύση ιδιωτικότητας που δίνει στους χρήστες τη δυνατότητα να προστατεύουν δεδομένα σε μεγάλες ποσότητες.\n\nNYM Links\nΕπίσημη ιστοσελίδα [https://nymtech.net/]\nDiscord [https://discord.com/invite/nym]\nTwitter [https://twitter.com/nymproject]\nΤwitter της κοινότητας [https://twitter.com/NYM_GR]\nGitHub [https://github.com/nymtech]\nTelegram [https://t.me/nymchan]\nYouTube [https://www.youtube.com/nymtech]\nMedium [https://medium.com/nymtech]",
+        "documentation": "Μπορείτε να βρείτε την τεκμηρίωση εδώ:\n[https://nymtech.net/docs/]",
+        "installation_script": "Μπορείτε να χρησιμοποιήσετε το [NODERS]TEAM script για να εγκαταστήσετε εύκολα έναν κόμβο mixnet. Επικολλήστε την παρακάτω εντολή στο τερματικό:\n\ncurl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode.sh\nchmod +x mixnode.sh\n./mixnode.sh",
+        "community_twitter": "Ακολουθήστε μας στο Twitter για τις πιο πρόσφατες ενημερώσεις και ειδήσεις:\n[https://twitter.com/NYM_GR]"
+    },
+    "Bahasa Indonesia": {
+        "project_description": "NYM - generasi berikutnya dari infrastruktur privasi. NYM adalah sistem keamanan terdesentralisasi berbasis sumber terbuka yang menyediakan kerangka privasi komprehensif untuk aplikasi, layanan, dan blockchain. NYM memungkinkan pengguna dan pengembang memiliki perlindungan kuat terhadap data pribadi, termasuk pemantauan metadata pada tingkat lalu lintas jaringan, serta tingkat otentikasi dan pembayaran. Selain itu, NYM adalah protokol tanpa izin yang diciptakan untuk mencegah kebocoran data dari protokol internet lainnya. Proyek ini menawarkan solusi privasi yang memberikan pengguna kemampuan untuk melindungi data dalam jumlah besar. \n\nTautan NYM:\nSitus resmi [https://nymtech.net/]\nDiscord [https://discord.com/invite/nym]\nTwitter [https://twitter.com/nymproject]\nTwitter Komunitas [https://twitter.com/NYM_Indonesia]\nGitHub [https://github.com/nymtech]\nTelegram [https://t.me/nymchan]\nYouTube [https://www.youtube.com/nymtech]\nMedium [https://medium.com/nymtech]",
+        "documentation": "Anda dapat menemukan dokumentasi di sini:\n[https://nymtech.net/docs/]",
+        "installation_script": "Anda dapat menggunakan skrip [NODERS]TEAM untuk dengan mudah mengatur node mixnet. Tempelkan perintah berikut ke dalam terminal:\n\ncurl -s -o mixnode.sh https://raw.githubusercontent.com/nodersteam/noderslabs/main/NYM/mixnode/mixnode.sh\nchmod +x mixnode.sh\n./mixnode.sh",
+        "community_twitter": "Ακολουθήστε μας στο Twitter για τις τελευταίες ενημερώσεις και νέα.\n[https://twitter.com/NYM_Indonesia]"
+    }
+}
+
+# Create a command /project_description
+@slash.slash(name="project_description", description="Show NYM project description")
+# Create a function to handle this command
+async def project_description(ctx: SlashContext):
+    # Get the user's role from their settings
+    role = ctx.author.top_role.name
+    # Check if such a role exists in the outputs dictionary
+    if role in outputs:
+        # If it exists, select the corresponding output
+        output = outputs[role]["project_description"]
+    else:
+        # If it doesn't exist, use English as the default language
+        output = outputs["English"]["project_description"]
+    # Send the output to the channel
+    await ctx.send(output)
+
+# Create a command /documentation
+@slash.slash(name="documentation", description="Show documentation for the bot")
+# Create a function to handle this command
+async def documentation(ctx: SlashContext):
+    # Get the user's role from their settings
+    role = ctx.author.top_role.name
+    # Check if such a role exists in the outputs dictionary
+    if role in outputs:
+        # If it exists, select the corresponding output
+        output = outputs[role]["documentation"]
+    else:
+        # If it doesn't exist, use English as the default language
+        output = outputs["English"]["documentation"]
+    # Send the output to the channel
+    await ctx.send(output)
+
+# Create a command /installation_script
+@slash.slash(name="installation_script", description="Show installation script for NYM")
+# Create a function to handle this command
+async def installation_script(ctx: SlashContext):
+    # Get the user's role from their settings
+    role = ctx.author.top_role.name
+    # Check if such a role exists in the outputs dictionary
+    if role in outputs:
+        # If it exists, select the corresponding output
+        output = outputs[role]["installation_script"]
+    else:
+        # If it doesn't exist, use English as the default language
+        output = outputs["English"]["installation_script"]
+    # Send the output to the channel
+    await ctx.send(output)
+
+# Create a command /community_twitter
+@slash.slash(name="community_twitter", description="Show NYM community Twitter")
+# Create a function to handle this command
+async def community_twitter(ctx: SlashContext):
+    # Get the user's role from their settings
+    role = ctx.author.top_role.name
+    # Check if such a role exists in the outputs dictionary
+    if role in outputs:
+        # If it exists, select the corresponding output
+        output = outputs[role]["community_twitter"]
+    else:
+        # If it doesn't exist, use English as the default language
+        output = outputs["English"]["community_twitter"]
+    # Send the output to the channel
+    await ctx.send(output)
+
+# Run the bot with the token from the .env file
+bot.run(os.getenv("TOKEN"))
