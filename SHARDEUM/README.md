@@ -22,14 +22,15 @@ With this script, you can:
 
 Ensure you have `svn` installed. If not, you can install it using:
 
-- For Debian/Ubuntu:
-  ```bash
-  sudo apt-get install subversion
-
+For Debian/Ubuntu:
+```
+sudo apt-get install subversion
+```
 Download the SHARDEUM/script directory from the repository:
 
-  ```bash
+```
 svn export https://github.com/nodersteam/noderslabs/trunk/SHARDEUM/script
 cd script
 chmod +x main.sh server.sh install.sh update.sh logs.sh dashboard_address.sh delete_node.sh
 ./main.sh
+```
