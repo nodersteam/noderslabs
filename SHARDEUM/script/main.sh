@@ -22,37 +22,39 @@ do
     "Stop and delete node"
     "Exit")
 
-case $opt in
-    "Prepare the server for installation")
-        ./server.sh
-        break
-        ;;
-    "Install Shardeum Node")
-        ./install.sh
-        break
-        ;;
-    "Update Node")
-        ./update.sh
-        break
-        ;;
-    "Logs")
-        ./logs.sh
-        break
-        ;;
-    "Dashboard address")
-        ./dashboard_address.sh
-        break
-        ;;
-    "Stop and delete node")
-        ./delete_node.sh
-        break
-        ;;
-    "Exit")
-        exit
-        ;;
-    *)
-        echo "Invalid option $REPLY"
-        ;;
-esac
+    select opt in "${options[@]}"
+    do
+        case $opt in
+            "Prepare the server for installation")
+                ./server.sh
+                break
+                ;;
+            "Install Shardeum Node")
+                ./install.sh
+                break
+                ;;
+            "Update Node")
+                ./update.sh
+                break
+                ;;
+            "Logs")
+                ./logs.sh
+                break
+                ;;
+            "Dashboard address")
+                ./dashboard_address.sh
+                break
+                ;;
+            "Stop and delete node")
+                ./delete_node.sh
+                break
+                ;;
+            "Exit")
+                exit
+                ;;
+            *)
+                echo "Invalid option $REPLY"
+                ;;
+        esac
     done
 done
