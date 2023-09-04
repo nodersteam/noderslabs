@@ -36,5 +36,8 @@ cd namadascript
 . menu.sh
 </pre>
 
+![image](https://github.com/nodersteam/noderslabs/assets/94483941/6cdd90c7-eedc-46d4-8d54-97a455ed9b19)
+
+
 ## Support
 For any issues or support, please contact [NODERS]TEAM.
