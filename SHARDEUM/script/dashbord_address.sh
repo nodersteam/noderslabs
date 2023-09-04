@@ -12,6 +12,15 @@ if [ -z "$IP_ADDRESS" ]; then
     exit 1
 fi
 
-# If everything is fine, display the dashboard address
+# Construct the dashboard address
 DASHBOARD_ADDRESS="https://$IP_ADDRESS:8080"
-echo $DASHBOARD_ADDRESS
+
+# Test the dashboard address for a response
+wget --spider -q $DASHBOARD_ADDRESS
+
+if [ $? -ne 0 ]; then
+    echo "Dashboard might not be active. Please check the node's state."
+    exit 1
+else
+    echo $DASHBOARD_ADDRESS
+fi
