@@ -35,7 +35,7 @@ case $opt in
         ./update.sh
         break
         ;;
-    "Logs"
+    "Logs")
         ./logs.sh
         break
         ;;
