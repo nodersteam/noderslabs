@@ -311,204 +311,116 @@ elif [ -f NODEHOME/.env ]; then
   PREVIOUS_PASSWORD=$(echo $ENV_VARS | grep -oP 'DASHPASS=\K[^ ]+') || PREVIOUS_PASSWORD=none
 fi
 
-cat << EOF
+echo "Starting the installation process..."
 
-#########################
-# 0. GET INFO FROM USER #
-#########################
-
-EOF
-
+# Check for user's choice on dashboard
 read -p "Do you want to run the web based Dashboard? (Y/n): " RUNDASHBOARD
 RUNDASHBOARD=$(echo "$RUNDASHBOARD" | tr '[:upper:]' '[:lower:]')
 RUNDASHBOARD=${RUNDASHBOARD:-y}
 
 if [ "$PREVIOUS_PASSWORD" != "none" ]; then
-  read -p "Do you want to change the password for the Dashboard? (y/N): " CHANGEPASSWORD
-  CHANGEPASSWORD=$(echo "$CHANGEPASSWORD" | tr '[:upper:]' '[:lower:]')
-  CHANGEPASSWORD=${CHANGEPASSWORD:-n}
+    read -p "Do you want to change the password for the Dashboard? (y/N): " CHANGEPASSWORD
+    CHANGEPASSWORD=$(echo "$CHANGEPASSWORD" | tr '[:upper:]' '[:lower:]')
+    CHANGEPASSWORD=${CHANGEPASSWORD:-n}
 else
-  CHANGEPASSWORD="y"
+    CHANGEPASSWORD="y"
 fi
 
+# Password setup
 if [ "$CHANGEPASSWORD" == "y" ]; then
-  unset CHARCOUNT
-  echo -n "Set the password to access the Dashboard: "
-  CHARCOUNT=0
-  while IFS= read -p "$PROMPT" -r -s -n 1 CHAR
-  do
-    # Enter - accept password
-    if [[ $CHAR == $'\0' ]] ; then
-      if [ $CHARCOUNT -gt 0 ] ; then # Make sure password character length is greater than 0.
-        break
-      else
-        echo
-        echo -n "Invalid password input. Enter a password with character length greater than 0:"
-        continue
-      fi
-    fi
-    # Backspace
-    if [[ $CHAR == $'\177' ]] ; then
-      if [ $CHARCOUNT -gt 0 ] ; then
-        CHARCOUNT=$((CHARCOUNT-1))
-        PROMPT=$'\b \b'
-        DASHPASS="${DASHPASS%?}"
-      else
-        PROMPT=''
-      fi
-    else
-      CHARCOUNT=$((CHARCOUNT+1))
-      PROMPT='*'
-      DASHPASS+="$CHAR"
-    fi
-  done
-
-  # Hash the password using the fallback mechanism
-  DASHPASS=$(hash_password "$DASHPASS")
+    while true; do
+        read -s -p "Set the password to access the Dashboard: " DASHPASS
+        echo # New line for formatting
+        if [ -z "$DASHPASS" ]; then
+            echo "Password should not be empty. Please try again."
+            continue
+        else
+            DASHPASS=$(hash_password "$DASHPASS")
+            break
+        fi
+    done
 else
-  DASHPASS=$PREVIOUS_PASSWORD
-  if ! [[ $DASHPASS =~ ^[0-9a-f]{64}$ ]]; then
+    DASHPASS=$PREVIOUS_PASSWORD
     DASHPASS=$(hash_password "$DASHPASS")
-  fi
 fi
 
+# Ensure password is hashed
 if [ -z "$DASHPASS" ]; then
-  echo -e "\nFailed to hash the password. Please ensure you have openssl"
-  exit 1
+    echo "Failed to hash the password. Please ensure you have openssl."
+    exit 1
 fi
 
-echo # New line after inputs.
-# echo "Password saved as:" $DASHPASS #DEBUG: TEST PASSWORD WAS RECORDED AFTER ENTERED.
-
-while :; do
-  read -p "Enter the port (1025-65536) to access the web based Dashboard (default $DASHPORT_DEFAULT): " DASHPORT
-  DASHPORT=${DASHPORT:-$DASHPORT_DEFAULT}
-  [[ $DASHPORT =~ ^[0-9]+$ ]] || { echo "Enter a valid port"; continue; }
-  if ((DASHPORT >= 1025 && DASHPORT <= 65536)); then
+# Port setup for dashboard
+while true; do
+    read -p "Enter the port (1025-65536) to access the web based Dashboard (default $DASHPORT_DEFAULT): " DASHPORT
     DASHPORT=${DASHPORT:-$DASHPORT_DEFAULT}
-    break
-  else
-    echo "Port out of range, try again"
-  fi
-done
-
-while :; do
-  read -p "If you wish to set an explicit external IP, enter an IPv4 address (default=$EXTERNALIP_DEFAULT): " EXTERNALIP
-  EXTERNALIP=${EXTERNALIP:-$EXTERNALIP_DEFAULT}
-
-  if [ "$EXTERNALIP" == "auto" ]; then
-    break
-  fi
-
-  # Use regex to check if the input is a valid IPv4 address
-  if [[ $EXTERNALIP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-    # Check that each number in the IP address is between 0-255
-    valid_ip=true
-    IFS='.' read -ra ip_nums <<< "$EXTERNALIP"
-    for num in "${ip_nums[@]}"
-    do
-        if (( num < 0 || num > 255 )); then
-            valid_ip=false
-        fi
-    done
-
-    if [ $valid_ip == true ]; then
-      break
+    if ((DASHPORT >= 1025 && DASHPORT <= 65536)); then
+        break
     else
-      echo "Invalid IPv4 address. Please try again."
+        echo "Port out of range, try again."
     fi
-  else
-    echo "Invalid IPv4 address. Please try again."
-  fi
 done
 
-while :; do
-  read -p "If you wish to set an explicit internal IP, enter an IPv4 address (default=$INTERNALIP_DEFAULT): " INTERNALIP
-  INTERNALIP=${INTERNALIP:-$INTERNALIP_DEFAULT}
-
-  if [ "$INTERNALIP" == "auto" ]; then
-    break
-  fi
-
-  # Use regex to check if the input is a valid IPv4 address
-  if [[ $INTERNALIP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-    # Check that each number in the IP address is between 0-255
-    valid_ip=true
-    IFS='.' read -ra ip_nums <<< "$INTERNALIP"
-    for num in "${ip_nums[@]}"
-    do
-        if (( num < 0 || num > 255 )); then
-            valid_ip=false
-        fi
-    done
-
-    if [ $valid_ip == true ]; then
-      break
+# External IP setup
+while true; do
+    read -p "If you wish to set an explicit external IP, enter an IPv4 address (default=$EXTERNALIP_DEFAULT): " EXTERNALIP
+    EXTERNALIP=${EXTERNALIP:-$EXTERNALIP_DEFAULT}
+    if [[ $EXTERNALIP == "auto" ]] || [[ $EXTERNALIP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+        break
     else
-      echo "Invalid IPv4 address. Please try again."
+        echo "Invalid IPv4 address. Please try again."
     fi
-  else
-    echo "Invalid IPv4 address. Please try again."
-  fi
 done
 
-while :; do
-  echo "To run a validator on the Sphinx network, you will need to open two ports in your firewall."
-  read -p "This allows p2p communication between nodes. Enter the first port (1025-65536) for p2p communication (default $SHMEXT_DEFAULT): " SHMEXT
-  SHMEXT=${SHMEXT:-$SHMEXT_DEFAULT}
-  [[ $SHMEXT =~ ^[0-9]+$ ]] || { echo "Enter a valid port"; continue; }
-  if ((SHMEXT >= 1025 && SHMEXT <= 65536)); then
-    SHMEXT=${SHMEXT:-9001}
-  else
-    echo "Port out of range, try again"
-  fi
-  read -p "Enter the second port (1025-65536) for p2p communication (default $SHMINT_DEFAULT): " SHMINT
-  SHMINT=${SHMINT:-$SHMINT_DEFAULT}
-  [[ $SHMINT =~ ^[0-9]+$ ]] || { echo "Enter a valid port"; continue; }
-  if ((SHMINT >= 1025 && SHMINT <= 65536)); then
-    SHMINT=${SHMINT:-10001}
-    break
-  else
-    echo "Port out of range, try again"
-  fi
+# Internal IP setup
+while true; do
+    read -p "If you wish to set an explicit internal IP, enter an IPv4 address (default=$INTERNALIP_DEFAULT): " INTERNALIP
+    INTERNALIP=${INTERNALIP:-$INTERNALIP_DEFAULT}
+    if [[ $INTERNALIP == "auto" ]] || [[ $INTERNALIP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+        break
+    else
+        echo "Invalid IPv4 address. Please try again."
+    fi
 done
 
-#APPSEEDLIST="archiver-sphinx.shardeum.org"
-#APPMONITOR="monitor-sphinx.shardeum.org"
+# P2P communication ports
+while true; do
+    echo "To run a validator on the Sphinx network, you will need to open two ports in your firewall."
+    echo "This allows p2p communication between nodes."
+    read -p "Enter the first port (1025-65536) for p2p communication (default $SHMEXT_DEFAULT): " SHMEXT
+    SHMEXT=${SHMEXT:-$SHMEXT_DEFAULT}
+    read -p "Enter the second port (1025-65536) for p2p communication (default $SHMINT_DEFAULT): " SHMINT
+    SHMINT=${SHMINT:-$SHMINT_DEFAULT}
+    if ((SHMEXT >= 1025 && SHMEXT <= 65536)) && ((SHMINT >= 1025 && SHMINT <= 65536)); then
+        break
+    else
+        echo "One or both ports are out of range, try again."
+    fi
+done
+
 APPMONITOR="173.255.198.126"
 
-cat <<EOF
-
-###########################
-# 1. Pull Compose Project #
-###########################
-
-EOF
-
+# Check and remove existing directory
 if [ -d "$NODEHOME" ]; then
   if [ "$NODEHOME" != "$(pwd)" ]; then
     echo "Removing existing directory $NODEHOME..."
-    rm -rf "$NODEHOME"
+    rm -rf "$NODEHOME" || { echo "Error: Could not remove $NODEHOME. Exiting."; exit 1; }
   else
     echo "Cannot delete current working directory. Please move to another directory and try again."
+    exit 1
   fi
 fi
 
-git clone https://gitlab.com/shardeum/validator/dashboard.git ${NODEHOME} || { echo "Error: Permission denied. Exiting script."; exit 1; }
+# Clone the repository
+echo "Cloning repository..."
+git clone https://gitlab.com/shardeum/validator/dashboard.git ${NODEHOME} || { echo "Error: Failed to clone repository. Exiting script."; exit 1; }
 cd ${NODEHOME}
 chmod a+x ./*.sh
 
-cat <<EOF
-
-###############################
-# 2. Create and Set .env File #
-###############################
-
-EOF
-
+# Create .env file
+echo "Setting up configuration..."
 SERVERIP=$(get_external_ip)
 LOCALLANIP=$(get_ip)
-cd ${NODEHOME} &&
 touch ./.env
 cat >./.env <<EOL
 EXT_IP=${EXTERNALIP}
@@ -523,35 +435,13 @@ SHMEXT=${SHMEXT}
 SHMINT=${SHMINT}
 EOL
 
-cat <<EOF
-
-##########################
-# 3. Clearing Old Images #
-##########################
-
-EOF
-
-./cleanup.sh
-
-cat <<EOF
-
-##########################
-# 4. Building base image #
-##########################
-
-EOF
-
+# Docker build
+echo "Building Docker image..."
 cd ${NODEHOME} &&
-docker-safe build --no-cache -t local-dashboard -f Dockerfile --build-arg RUNDASHBOARD=${RUNDASHBOARD} .
+docker-safe build --no-cache -t local-dashboard -f Dockerfile --build-arg RUNDASHBOARD=${RUNDASHBOARD} . || { echo "Error: Failed to build Docker image. Exiting."; exit 1; }
 
-cat <<EOF
-
-############################
-# 5. Start Compose Project #
-############################
-
-EOF
-
+# Adjusting docker-compose based on OS
+echo "Configuring Docker Compose..."
 cd ${NODEHOME}
 if [[ "$(uname)" == "Darwin" ]]; then
   sed "s/- '8080:8080'/- '$DASHPORT:$DASHPORT'/" docker-compose.tmpl > docker-compose.yml
@@ -562,27 +452,27 @@ else
   sed -i "s/- '9001-9010:9001-9010'/- '$SHMEXT:$SHMEXT'/" docker-compose.yml
   sed -i "s/- '10001-10010:10001-10010'/- '$SHMINT:$SHMINT'/" docker-compose.yml
 fi
-./docker-up.sh
+./docker-up.sh || { echo "Error: Docker startup failed. Exiting."; exit 1; }
 
-echo "Starting image. This could take a while..."
+# Check for logs
+echo "Starting image. This may take some time..."
 (docker-safe logs -f shardeum-dashboard &) | grep -q 'done'
 
-# Check if secrets.json exists and copy it inside container
+# Secrets.json check and actions
 cd ${CURRENT_DIRECTORY}
 if [ -f secrets.json ]; then
   echo "Reusing old node"
   CONTAINER_ID=$(docker-safe ps -qf "ancestor=local-dashboard")
-  echo "New container id is : $CONTAINER_ID"
-  docker-safe cp ./secrets.json "${CONTAINER_ID}:/home/node/app/cli/build/secrets.json"
+  docker-safe cp ./secrets.json "${CONTAINER_ID}:/home/node/app/cli/build/secrets.json" || { echo "Error: Failed to copy secrets.json to container. Exiting."; exit 1; }
   rm -f secrets.json
 fi
 
-#Do not indent
+# Final instructions
 if [ $RUNDASHBOARD = "y" ]
 then
 cat <<EOF
   To use the Web Dashboard:
-    1. Note the IP address that you used to connect to the node. This could be an external IP, LAN IP or localhost.
+    1. Note the IP address that you used to connect to the node. This could be an external IP, LAN IP, or localhost.
     2. Open a web browser and navigate to the web dashboard at https://<Node IP address>:$DASHPORT
     3. Go to the Settings tab and connect a wallet.
     4. Go to the Maintenance tab and click the Start Node button.
@@ -593,11 +483,9 @@ EOF
 fi
 
 cat <<EOF
-
 To use the Command Line Interface:
 	1. Navigate to the Shardeum home directory ($NODEHOME).
 	2. Enter the validator container with ./shell.sh.
 	3. Run "operator-cli --help" for commands
-
 EOF
 
