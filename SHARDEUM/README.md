@@ -31,6 +31,6 @@ Download the SHARDEUM/script directory from the repository:
 ```
 svn export https://github.com/nodersteam/noderslabs/trunk/SHARDEUM/script
 cd script
-chmod +x main.sh server.sh install.sh update.sh logs.sh dashboard_address.sh delete_node.sh
+chmod +x main.sh server.sh install.sh update.sh logs.sh delete_node.sh
 ./main.sh
 ```
