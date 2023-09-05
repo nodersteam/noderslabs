@@ -19,7 +19,7 @@ echo " \ \`--.| |_| |/ /_\ \| |_/ / | | | |__ | | | | .  . |                    
 echo "  \`--. \  _  ||  _  ||    /| | | |  __|| | | | |\/| |                      "
 echo " /\__/ / | | || | | || |\ \| |/ /| |___| |_| | |  | |                       "
 echo " \____/\_| |_/\_| |_/\_| \_|___/ \____/ \___/\_|  |_|                       "
-echo -e "\033[5;34m NODE INSTALL SCRIPT FROM [NODERS]TEAM \033[0m                 "
+echo -e "\033[34m NODE INSTALL SCRIPT FROM [NODERS]TEAM \033[0m                 "
 echo " "
 
     # Attempt to fetch the IP address
