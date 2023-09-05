@@ -44,7 +44,7 @@ cd namadascript
 2. Be sure to wait for complete synchronization
 3. Validator initialization (Point 3)
 4. After full synchronization, you will have the functionality of requesting tokens from faucet (Point 4)
-5. Requesting tokens
+5. Requesting tokens to the wallet address
 6. Perform a primary bond from the wallet address (Point 3)
 7. After that, you will see the full functionality of the script (Displaying information about the node and validator, bond tokens from the address of the wallet or validator)
 
