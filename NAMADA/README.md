@@ -40,7 +40,7 @@ cd namadascript
 
 ## Initial installation
 
-1. Node installation (Point 1)
+1. Node installation. Set wallet and validator name. (Point 1) 
 2. Be sure to wait for complete synchronization
 3. Validator initialization (Point 3)
 4. After full synchronization, you will have the functionality of requesting tokens from faucet (Point 4)
