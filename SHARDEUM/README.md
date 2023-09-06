@@ -18,6 +18,17 @@ With this script, you can:
 
 ## Getting Started
 
+# Reminder:
+
+If you're installing nodes under a specific profile, don't forget to grant permissions to use Docker with the following commands:
+```
+sudo usermod -aG sudo <USER>
+sudo usermod -aG docker <USER>
+```
+And then, reboot the server.
+
+After this, you can proceed with the installation.
+
 ### Prerequisites
 
 Ensure you have `svn` installed. If not, you can install it using:
