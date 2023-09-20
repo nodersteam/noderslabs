@@ -68,7 +68,7 @@ setup_node() {
   latest_tag=$(get_latest_tag)
   git checkout "$latest_tag"
   cargo build --release --bin nym-mixnode
-  sudo mv target/release/nym-mixnode /usr/local/bin/
+  sudo mv target/release/nym-mixnode /usr/local/bin/nym-mixnode
 
   # Инициализация узла
   nym-mixnode init --id $node_name --host $(curl ipinfo.io/ip)
