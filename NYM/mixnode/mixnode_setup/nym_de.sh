@@ -117,7 +117,7 @@ Node_aktualisieren() {
         git fetch
         git checkout "$aktuellste_version"
         cargo build --release --bin nym-mixnode
-        sudo mv target/release/nym-mixnode /usr/local/bin/
+        sudo mv target/release/nym-mixnode /usr/local/bin/nym-mixnode
         sudo systemctl restart nym-mixnode
     ;;
     * )
