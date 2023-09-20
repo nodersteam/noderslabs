@@ -117,7 +117,7 @@ perbarui_node() {
         git fetch
         git checkout "$tag_terakhir"
         cargo build --release --bin nym-mixnode
-        sudo mv target/release/nym-mixnode /usr/local/bin/
+        sudo mv target/release/nym-mixnode /usr/local/bin/nym-mixnode
         sudo systemctl restart nym-mixnode
     ;;
     * )
