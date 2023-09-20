@@ -71,7 +71,7 @@ setup_node() {
   sudo mv target/release/nym-mixnode /usr/local/bin/
 
   # Προετοιμασία κόμβου
-  nym-mixnode init --id $node_name --host $(curl ifconfig.me)
+  nym-mixnode init --id $node_name --host $(curl ipinfo.io/ip)
 
   # Διαμόρφωση του firewall
   sudo ufw allow 1789,1790,8000,22,80,443/tcp
