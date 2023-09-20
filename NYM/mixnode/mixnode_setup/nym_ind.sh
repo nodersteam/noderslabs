@@ -71,7 +71,7 @@ atur_node() {
   sudo mv target/release/nym-mixnode /usr/local/bin/
 
   # Inisialisasi node
-  nym-mixnode init --id $nama_node --host $(curl ifconfig.me)
+  nym-mixnode init --id $nama_node --host $(curl ipinfo.io/ip)
 
   # Konfigurasi firewall
   sudo ufw allow 1789,1790,8000,22,80,443/tcp
