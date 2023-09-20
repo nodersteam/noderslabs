@@ -71,7 +71,7 @@ einrichtung_des_Nodes() {
   sudo mv target/release/nym-mixnode /usr/local/bin/
 
   # Node initialisieren
-  nym-mixnode init --id $Node_name --host $(curl ifconfig.me)
+  nym-mixnode init --id $Node_name --host $(curl ipinfo.io/ip)
 
   # Firewall konfigurieren
   sudo ufw allow 1789,1790,8000,22,80,443/tcp
