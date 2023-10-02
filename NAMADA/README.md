@@ -36,7 +36,7 @@ svn exporthttps://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript
 To start the script, navigate to the directory containing the script and run:
 
 <pre>
-cd easy-install
+cd namadascript
 . menu.sh
 </pre>
 
