@@ -29,7 +29,7 @@ The script automatically fetches and showcases:
 <pre>
 sudo apt-get update
 sudo apt-get install subversion
-svn exporthttps://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript
+svn export https://github.com/nodersteam/noderslabs/trunk/NAMADA/namadascript
 </pre>
 
 ## Usage
