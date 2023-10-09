@@ -42,11 +42,11 @@ while true; do
                 echo "Wallet name set to: $WALLET_NAME"
 
                 # User set CHAIN_ID
-                echo "Would you like to use the default Chain ID 'public-testnet-12.fedec12f3428'? (y/n)"
+                echo "Would you like to use the default Chain ID 'public-testnet-14.5d79b6958580'? (y/n)"
                 read choice
 
                 if [[ $choice == "y" || $choice == "Y" ]]; then
-                    CHAIN_ID="public-testnet-12.fedec12f3428"
+                    CHAIN_ID="public-testnet-14.5d79b6958580"
                 else
                     echo "Please enter the name of Chain ID:"
                     read CHAIN_ID
