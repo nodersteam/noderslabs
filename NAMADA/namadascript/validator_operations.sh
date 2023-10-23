@@ -32,28 +32,34 @@ while true; do
                 echo "Node synchronization is in progress. Validator initialization is not possible."
             else
                 init_validator() {
-                    echo "Initializing validator..."
-                    
-                    # Run the command to initialize the validator
-                    init_result=$(namada client init-validator \
-                        --alias $MONIKER \
-                        --account-keys $WALLET_NAME \
-                        --signing-keys $WALLET_NAME \
-                        --commission-rate 0.05 \
-                        --max-commission-rate-change 0.01)
-                    
-                    # Extract the validator address from the result
-                    VALIDATOR_ADDRESS=$(echo $init_result | grep -oE "atest1[0-9a-z]+" | tail -1)
-                    
-                    if [[ ! -z "$VALIDATOR_ADDRESS" ]]; then
-                        # Save the validator address to VALIDATOR_ADDRESS variable
-                        sed -i '/export VALIDATOR_ADDRESS=/d' $HOME/.bash_profile
-                        echo "export VALIDATOR_ADDRESS=\"$VALIDATOR_ADDRESS\"" >> $HOME/.bash_profile
-                        echo "Validator address initialized: $VALIDATOR_ADDRESS"
-                    else
-                        echo "Failed to retrieve validator address. Initialization unsuccessful."
-                    fi
-                }
+    echo "Initializing validator..."
+
+    # Создаем временный файл для сохранения вывода команды
+    init_result_file="/tmp/init_validator_output.txt"
+
+    # Выполняем команду, сохраняем ее вывод в файл и выводим его в терминал
+    namada client init-validator \
+        --alias $MONIKER \
+        --account-keys $WALLET_NAME \
+        --signing-keys $WALLET_NAME \
+        --commission-rate 0.05 \
+        --max-commission-rate-change 0.01 | tee $init_result_file
+
+    # Извлекаем адрес валидатора из файла и убираем лишние символы
+    VALIDATOR_ADDRESS=$(grep -oE 'Added alias test for address [^ ]+' $init_result_file | awk '{print $6}' | tr -d '.')
+
+    # Проверяем, удалось ли найти адрес валидатора
+    if [[ ! -z "$VALIDATOR_ADDRESS" ]]; then
+        sed -i '/export VALIDATOR_ADDRESS=/d' $HOME/.bash_profile
+        echo "export VALIDATOR_ADDRESS=\"$VALIDATOR_ADDRESS\"" >> $HOME/.bash_profile
+        echo "Validator address initialized: $VALIDATOR_ADDRESS"
+    else
+        echo "Failed to retrieve validator address. Initialization unsuccessful."
+    fi
+
+    # Удаляем временный файл
+    rm -f $init_result_file
+}
                 init_validator
             fi
             read -p "Press any key to continue..."
