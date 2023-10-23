@@ -87,7 +87,7 @@ while true; do
                     
                     print_variable "Node block height" "$NODE_BLOCK_HEIGHT"
                     
-                    if [[ "$SYNC_STATUS" == "true" ]]; then
+                    if [[ "$SYNC_STATUS" == "true" && ! -z "$WALLET_ADDRESS" ]]; then
                         echo -e "Sync status:         \e[31mIn progress\e[0m"  # RED
                     else
                         echo -e "Sync status:         \e[32mSynced\e[0m"  # GREEN
