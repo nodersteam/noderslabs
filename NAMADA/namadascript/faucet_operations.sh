@@ -5,8 +5,8 @@ request_tokens() {
     # Check Sync Status
     if [[ "$SYNC_STATUS" == "true" ]]; then
         echo ""
-        echo "Your node is synchronizing. You won't be able to execute token requests until your node finishes synchronization"
-        echo "After synchronization is complete, you will be able to interact with commands to request tokens"
+        echo "Your node is synchronizing. You won't be able to execute token requests until your node finishes synchronization."
+        echo "After synchronization is complete, you will be able to interact with commands to request tokens."
         echo ""
         read -p "Press any key to continue..."
         return
@@ -22,36 +22,36 @@ request_tokens() {
     fi
 
     while true; do
-        echo "1. Request Tokens to Wallet Address ($WALLET_ADDRESS)"
+        echo " "
+        echo "To request tokens, please visit the following website"
+        echo " "
+        echo "https://faucet.heliax.click/"
+        echo " "
+        echo "and request tokens to your address: "
+        echo "$WALLET_ADDRESS"
+        echo " "
+        echo "1. Return to Main Menu"
         
         if [[ ! -z "$VALIDATOR_ADDRESS" && ! -z "$MONIKER" ]]; then
-          echo "2. Request Tokens to Validator Address ($VALIDATOR_ADDRESS)"
+            echo "2. Show Validator Information"
         fi
-        
-        echo "3. Return to Main Menu"
-        
+
         read -p "Enter your choice: " faucet_choice
         
         case $faucet_choice in
             1)
-                echo "Requesting Tokens to Wallet Address ($WALLET_ADDRESS)..."
-                namadac transfer --token NAM --amount 1000 --source faucet --target $WALLET_NAME --signing-keys $WALLET_NAME
-                echo "Tokens requested successfully!"
-                read -p "Press any key to continue..."
+                break
                 ;;
             2)
-                if [[ ! -z "$VALIDATOR_ADDRESS" ]]; then
-                    echo "Requesting Tokens to Validator Address ($VALIDATOR_ADDRESS)..."
-                    namadac transfer --token NAM --amount 1000 --source faucet --target $MONIKER --signing-keys $WALLET_NAME
-                    echo "Tokens requested successfully!"
+                if [[ ! -z "$VALIDATOR_ADDRESS" && ! -z "$MONIKER" ]]; then
+                    echo "Validator Information:"
+                    echo "Moniker: $MONIKER"
+                    echo "Validator Address: $VALIDATOR_ADDRESS"
                     read -p "Press any key to continue..."
                 else
-                    echo "Validator address is not set."
+                    echo "Validator address or moniker is not set."
                     read -p "Press any key to continue..."
                 fi
-                ;;
-            3)
-                break
                 ;;
             *)
                 echo "Invalid choice!"
