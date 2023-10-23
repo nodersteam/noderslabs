@@ -212,7 +212,14 @@ EOF
                 echo "export NODE_BLOCK_HEIGHT=$NODE_BLOCK_HEIGHT" >> $HOME/.bash_profile
                 echo "Block height: $NODE_BLOCK_HEIGHT"
 
-                namada wallet address gen --alias $WALLET_NAME --unsafe-dont-encrypt
+                echo "Generating wallet address..."
+                WALLET_ADDRESS=$(namada wallet address gen --alias $WALLET_NAME --unsafe-dont-encrypt)
+
+
+                sed -i '/export WALLET_ADDRESS=/d' $HOME/.bash_profile
+                echo "export WALLET_ADDRESS=\"$WALLET_ADDRESS\"" >> $HOME/.bash_profile
+
+                echo "Wallet address: $WALLET_ADDRESS"
 
                 echo "Installation completed successfully!"
                 echo " "
@@ -252,8 +259,8 @@ EOF
                     sed -i '/NODE_BLOCK_HEIGHT=/d' $HOME/.bash_profile &>/dev/null
                     sed -i '/VALIDATOR_BOND=/d' $HOME/.bash_profile &>/dev/null
                     sed -i '/WALLET_BALANCE=/d' $HOME/.bash_profile &>/dev/null
-                    sed -i '/WALLET_ADDRES=/d' $HOME/.bash_profile &>/dev/null
-                    sed -i '/VALIDATOR_ADDRES=/d' $HOME/.bash_profile &>/dev/null
+                    sed -i '/WALLET_ADDRESS=/d' $HOME/.bash_profile &>/dev/null
+                    sed -i '/VALIDATOR_ADDRESS=/d' $HOME/.bash_profile &>/dev/null
                     sed -i '/SYNC_STATUS=/d' $HOME/.bash_profile &>/dev/null
                 fi
 
@@ -267,8 +274,8 @@ EOF
                 unset NODE_BLOCK_HEIGHT
                 unset VALIDATOR_BOND
                 unset WALLET_BALANCE
-                unset WALLET_ADDRES
-                unset VALIDATOR_ADDRES
+                unset WALLET_ADDRESS
+                unset VALIDATOR_ADDRESS
                 unset SYNC_STATUS
 
                 if [[ -e "/usr/local/bin/cometbft" || -e "/usr/local/bin/namada" || -e "/usr/local/bin/namadaWc" || -e "/usr/local/bin/namadan" || -e "/usr/local/bin/namadaw" ]]; then
