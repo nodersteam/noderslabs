@@ -60,21 +60,35 @@ display_information() {
         sed -i '/export SERVICE_STATUS=/d' $HOME/.bash_profile
     fi
     SERVICE_STATUS=$(sudo systemctl is-active namadad.service)
-    echo "export SERVICE_STATUS=$SERVICE_STATUS" >> $HOME/.bash_profile
+    if [[ -n "$SERVICE_STATUS" ]]; then
+        echo "export SERVICE_STATUS=$SERVICE_STATUS" >> $HOME/.bash_profile
+    fi
 
     # UPDATE SYNC_STATUS
     if grep -q '^export SYNC_STATUS=' $HOME/.bash_profile; then
         sed -i '/export SYNC_STATUS=/d' $HOME/.bash_profile
     fi
     SYNC_STATUS=$(curl -s localhost:26657/status | jq -r '.result.sync_info.catching_up')
-    echo "export SYNC_STATUS=$SYNC_STATUS" >> $HOME/.bash_profile
+    if [[ -n "$SYNC_STATUS" ]]; then
+        echo "export SYNC_STATUS=$SYNC_STATUS" >> $HOME/.bash_profile
+    fi
+
+    EXPECTED_BLOCK_HEIGHT=1
 
     # UPDATE NODE_BLOCK_HEIGHT
     if grep -q '^export NODE_BLOCK_HEIGHT=' $HOME/.bash_profile; then
-        sed -i '/export NODE_BLOCK_HEIGHT=/d' $HOME/.bash_profile
+        CURRENT_BLOCK_HEIGHT=$(grep '^export NODE_BLOCK_HEIGHT=' $HOME/.bash_profile | cut -d '=' -f 2)
+        
+        if [[ "$CURRENT_BLOCK_HEIGHT" =~ ^[0-9]+$ ]] && [ "$CURRENT_BLOCK_HEIGHT" -lt 1 ]; then
+            sed -i '/export NODE_BLOCK_HEIGHT=/d' $HOME/.bash_profile
+        fi
     fi
+
     NODE_BLOCK_HEIGHT=$(curl -s localhost:26657/status | jq -r '.result.sync_info.latest_block_height')
-    echo "export NODE_BLOCK_HEIGHT=$NODE_BLOCK_HEIGHT" >> $HOME/.bash_profile
+
+    if [[ "$NODE_BLOCK_HEIGHT" =~ ^[0-9]+$ ]] && [ "$NODE_BLOCK_HEIGHT" -ge 1 ]; then
+        echo "export NODE_BLOCK_HEIGHT=$NODE_BLOCK_HEIGHT" >> $HOME/.bash_profile
+    fi
 
     # Display status and balances
     if [[ ! -z "$MONIKER" ]]; then
@@ -124,18 +138,22 @@ display_information() {
     fi
     
     echo ""
-    print_variable "Node block height" "$NODE_BLOCK_HEIGHT"
-    
-    if [[ "$SYNC_STATUS" == "true" ]]; then
-        echo -e "Sync status:         \e[31mIn progress\e[0m"  # RED
-    else
-        echo -e "Sync status:         \e[32mSynced\e[0m"  # GREEN
-    fi
-    
-    if [[ "$SERVICE_STATUS" == "active" ]]; then
-        echo -e "Service status:      \e[32mACTIVE\e[0m"  # GREEN
-    else
-        echo -e "Service status:      \e[31mNOT ACTIVE\e[0m"  # RED
+
+    # Display NODE_BLOCK_HEIGHT only if it exists and is greater than or equal to 1
+    if [[ "$NODE_BLOCK_HEIGHT" =~ ^[0-9]+$ ]] && [ "$NODE_BLOCK_HEIGHT" -ge 1 ]; then
+        print_variable "Node block height" "$NODE_BLOCK_HEIGHT"
+
+        if [[ "$SYNC_STATUS" == "true" ]]; then
+            echo -e "Sync status:         \e[31mIn progress\e[0m"  # RED
+        else
+            echo -e "Sync status:         \e[32mSynced\e[0m"  # GREEN
+        fi
+        
+        if [[ "$SERVICE_STATUS" == "active" ]]; then
+            echo -e "Service status:      \e[32mACTIVE\e[0m"  # GREEN
+        else
+            echo -e "Service status:      \e[31mNOT ACTIVE\e[0m"  # RED
+        fi
     fi
     
     echo "                                                                         "
@@ -148,11 +166,11 @@ while true; do
     echo "                                                                         "
     echo "================== Namada Node Installation Menu ========================"
     echo "                                                                         "
-    echo "1. Node (Install, Uninstall, Restart)"
-    echo "2. Node Status Check (Logs, Error Journal, Service Status)"
-    echo "3. Validator (Check Balance, Init validator, Check Staking, Delegate (From wallet and validator address)"
-    echo "4. Faucet (Request Tokens)"
-    echo "5. User Cli (Docs link)"
+    echo "1. Node: Install, Uninstall, Restart"
+    echo "2. Node Status Check: Logs, Error Journal, Service Status"
+    echo "3. Faucet: Request Tokens"
+    echo "4. Validator: Check Balance, Init validator, Check Staking, Delegate (From wallet and validator address)"
+    echo "5. User Cli: Docs link"
     echo "6. Exit"
     echo "                                                                         "
     echo "========================================================================="
@@ -172,14 +190,15 @@ while true; do
             display_information
             ;;
         3)
-            # Validator (Check Balance, Init validator, Check Staking, Delegate)
-            source ./validator_operations.sh
+            # Faucet (Request Tokens)
+            source ./faucet_operations.sh
             clear_logo
             display_information
             ;;
+            
         4)
-            # Faucet (Request Tokens)
-            source ./faucet_operations.sh
+            # Validator (Check Balance, Init validator, Check Staking, Delegate)
+            source ./validator_operations.sh
             clear_logo
             display_information
             ;;
