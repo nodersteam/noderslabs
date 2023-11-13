@@ -105,7 +105,7 @@ while true; do
                 echo "export BASE_DIR=$HOME/.local/share/namada" >> ~/.bash_profile
 
                 echo "Downloading and installing Namada..."
-                NAMADA_TAG=v0.23.2
+                NAMADA_TAG=v0.23.1
                 NAMADA_URL="https://github.com/anoma/namada/releases/download/$NAMADA_TAG/namada-$NAMADA_TAG-Linux-x86_64.tar.gz"
                 curl -L -o namada.tar.gz $NAMADA_URL
                 tar -xzf namada.tar.gz --strip-components=1 -C /usr/local/bin/ namada-$NAMADA_TAG-Linux-x86_64/namada
