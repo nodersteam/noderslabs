@@ -106,7 +106,8 @@ while true; do
 
                 echo "Downloading and installing Namada..."
                 NAMADA_TAG=v0.23.2
-                git clone https://github.com/anoma/namada 
+                git clone https://github.com/anoma/namada
+                cd namada
                 git checkout $NAMADA_TAG
                 make build-release
                 sudo mv target/release/namada /usr/local/bin/
