@@ -109,7 +109,7 @@ while true; do
                 echo "export BASE_DIR=$HOME/.local/share/namada" >> ~/.bash_profile
 
                 echo "Downloading and installing Namada..."
-                NAMADA_TAG=v0.23.2
+                NAMADA_TAG=v0.23.1
                 git clone https://github.com/anoma/namada
                 cd namada
                 git checkout $NAMADA_TAG
@@ -117,6 +117,7 @@ while true; do
                 sudo mv target/release/namada /usr/local/bin/
                 sudo mv target/release/namada[c,n,w] /usr/local/bin/
                 echo "Namada $NAMADA_TAG installed successfully!"
+                cd $HOME/namadascript/
 
                 # Download and install Cometbft
                 CBFT_TAG=v0.37.2
@@ -216,8 +217,8 @@ EOF
                 echo "Block height: $NODE_BLOCK_HEIGHT"
 
                 echo "Generating wallet address..."
-                WALLET_ADDRESS=$(namada wallet address gen --alias $WALLET_NAME --unsafe-dont-encrypt)
-
+                namada wallet address gen --alias $WALLET_NAME --unsafe-dont-encrypt
+                WALLET_ADDRESS=$(namada wallet address find --alias $WALLET_NAME | grep -o 'atest[0-9a-zA-Z]*')
 
                 sed -i '/export WALLET_ADDRESS=/d' $HOME/.bash_profile
                 echo "export WALLET_ADDRESS=\"$WALLET_ADDRESS\"" >> $HOME/.bash_profile
