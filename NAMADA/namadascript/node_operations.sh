@@ -95,6 +95,10 @@ while true; do
                     echo " "
                 fi
 
+                curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+                source $HOME/.cargo/env
+
+
                 # Set var
                 echo "Configuring environment variables..."
                 sed -i '/public-testnet/d' "$HOME/.bash_profile"
