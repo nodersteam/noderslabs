@@ -105,7 +105,7 @@ while true; do
                 echo "export BASE_DIR=$HOME/.local/share/namada" >> ~/.bash_profile
 
                 echo "Downloading and installing Namada..."
-                NAMADA_TAG=v0.23.1
+                NAMADA_TAG=v0.23.2
                 git clone https://github.com/anoma/namada 
                 git checkout $NAMADA_TAG
                 make build-release
