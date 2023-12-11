@@ -2,72 +2,106 @@ import re
 import subprocess
 import reward_information
 from utils import check_object_balance, format_number
+from dotenv import load_dotenv, set_key
 
-def send_rewards_to_address():
-    # Retrieve object information
-    command_output = subprocess.check_output("sui client objects", shell=True, stderr=subprocess.DEVNULL, universal_newlines=True)
+load_dotenv()
 
     # Find all object IDs in the output and process each object
-    object_ids = re.findall(r'0x[0-9a-f]{64}', command_output)
-    filtered_objects = [object_id for object_id in object_ids if check_object_balance(object_id) > 5000000000]
+def get_owned_objects(address):
+    """
+    Fetches all objects owned by a given address from the Sui network.
+    """
+    url = "https://fullnode.mainnet.sui.io:443"
+    headers = {"Content-Type": "application/json"}
+    payload = {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "suix_getOwnedObjects",
+        "params": [address]
+    }
 
-    if len(filtered_objects) > 0:
-        existing_rewards = []
-
-        try:
-            with open("rewardforsend.txt", "r") as f:
-                existing_rewards = f.readlines()
-        except FileNotFoundError:
-            print("rewardforsend.txt file not found. Creating a new file.")
-
-        print("\nObjects with balance > 5 SUI:")
-        for object_id in filtered_objects:
-            balance = check_object_balance(object_id)
-            formatted_balance = format_number(balance / 1000000000)
-            reward_info = f"Object ID: {object_id}\nBalance: {formatted_balance} SUI\n"
-
-            if reward_info not in existing_rewards:
-                existing_rewards.append(reward_info)
-                print(reward_info)
-
-        recipient_address = input("Enter the recipient address: ")
-
-        option = input("Enter 'one' to send one reward or 'all' to send all: ")
-        if option == 'one':
-            reward_id = input("Enter the reward ID to send: ")
-            if reward_id in existing_rewards:
-                # Here is the command to send rewards
-                command = f"sui client transfer --to {recipient_address} --object-id {reward_id} --gas-budget 19980000"
-                command_output = subprocess.run(command, shell=True, capture_output=True, text=True).stdout
-                digest_line = re.search(r'----- Transaction Digest ----\n(\S+)', command_output)
-
-                if digest_line:
-                    digest = digest_line.group(1)
-                    print(f"Transaction Digest: {digest}")
-                    existing_rewards.remove(reward_id)
-                else:
-                    print("Error: Failed to retrieve transaction digest.")
-            else:
-                print("Error: Invalid reward ID or reward does not have balance > 5 SUI")
-        elif option == 'all':
-            for reward_info in existing_rewards:
-                reward_id = re.search(r'Object ID: (.*?)\n', reward_info).group(1)
-                balance = check_object_balance(reward_id)
-                command = f"sui client transfer --to {recipient_address} --object-id {reward_id} --gas-budget 19980000"
-                command_output = subprocess.run(command, shell=True, capture_output=True, text=True).stdout
-                digest_line = re.search(r'----- Transaction Digest ----\n(\S+)', command_output)
-
-                if digest_line:
-                    digest = digest_line.group(1)
-                    print(f"Transaction Digest: {digest}")
-                    existing_rewards.remove(reward_info)
-                else:
-                    print(f"Error: Failed to retrieve transaction digest for {reward_id}.")
-        else:
-            print("Invalid option. Please enter 'one' or 'all'.")
-
-        with open("rewardforsend.txt", "w") as f:
-            for reward_info in existing_rewards:
-                f.write(reward_info)
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    if response.status_code == 200:
+        return response.json()
     else:
-        print("\nNo objects found with balance > 5 SUI")
+        print("Error fetching data from the API")
+        return None
+
+def save_object_ids_to_file(object_ids, filename="reward_for_send.txt"):
+    """
+    Saves a list of object IDs to a text file.
+    """
+    with open(filename, 'w') as file:
+        for object_id in object_ids:
+            file.write(object_id + '\n')
+
+def request_address():
+    """
+    Requests the Sui address from the user and saves it to the .env file.
+    """
+    address = input("Please enter the Sui address: ")
+    set_key(".env", "RECEPIENT_ADDRESS", address)
+    return address
+
+def get_object_info(object_id):
+    """
+    Fetches detailed information about a specific object from the Sui network using sui_getObject.
+    Includes additional parameters to retrieve more details about the object.
+    """
+    url = "https://fullnode.mainnet.sui.io:443"
+    headers = {"Content-Type": "application/json"}
+    additional_params = {
+        "showType": True,
+        "showOwner": True,
+        "showPreviousTransaction": True,
+        "showDisplay": False,
+        "showContent": True,
+        "showBcs": False,
+        "showStorageRebate": True
+    }
+    payload = {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "sui_getObject",
+        "params": [object_id, additional_params]
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    if response.status_code == 200:
+        object_data = response.json().get('result', {}).get('data', {})
+        balance = int(object_data.get('content', {}).get('fields', {}).get('balance', 0))
+        return object_data, balance
+    else:
+        print(f"Error fetching data for object ID {object_id} from the API")
+        return None, 0
+
+def filter_and_save_object_ids(filename="reward_for_send.txt"):
+    """
+    Reads object IDs from a file, filters them based on their type and balance, and saves the filtered IDs back to the file.
+    """
+    with open(filename, 'r') as file:
+        object_ids = [line.strip() for line in file.readlines()]
+
+    filtered_object_ids = []
+    for object_id in object_ids:
+        object_info, balance = get_object_info(object_id)
+        if object_info and object_info.get('type') == "0x2::coin::Coin<0x2::sui::SUI>" and balance > 5000000000:
+            filtered_object_ids.append(object_id)
+
+    with open(filename, 'w') as file:
+        for object_id in filtered_object_ids:
+            file.write(object_id + '\n')
+
+def get_reward_information():
+    """
+    Gets reward information for a given Sui address and processes each object ID.
+    """
+    address = os.getenv("RECEPIENT_ADDRESS") or request_address()
+    owned_objects = get_owned_objects(address)
+    if owned_objects:
+        object_ids = [obj['data']['objectId'] for obj in owned_objects['result']['data']]
+        save_object_ids_to_file(object_ids)
+        filter_and_save_object_ids()
+        print("Filtered object IDs saved to reward_for_send.txt")
+    else:
+        print("No data to save")
