@@ -75,10 +75,11 @@ while true; do
 
                 # Install dependencies
                 echo "Installing main dependencies..."
-                sudo apt update &>/dev/null
-                sudo apt upgrade -y &>/dev/null
-                sudo apt install curl tar wget clang pkg-config git make libssl-dev libclang-dev libclang-12-dev jq build-essential bsdmainutils ncdu gcc git-core chrony liblz4-tool uidmap dbus-user-session protobuf-compiler unzip -y &>/dev/null
-
+                sudo apt update && sudo apt upgrade -y &>/dev/null
+                sudo apt install curl tar wget clang pkg-config git make libssl-dev libclang-dev libclang-12-dev -y &>/dev/null
+                sudo apt install jq build-essential bsdmainutils ncdu gcc git-core chrony liblz4-tool -y &>/dev/null
+                sudo apt install original-awk uidmap dbus-user-session protobuf-compiler unzip -y &>/dev/null
+                sudo apt install libudev-dev -y &>/dev/null
 
                 # Go
                 if ! [ -x "$(command -v go)" ]; then
