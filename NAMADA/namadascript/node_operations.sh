@@ -42,11 +42,11 @@ while true; do
                 echo "Wallet name set to: $WALLET_NAME"
 
                 # User set CHAIN_ID
-                echo "Would you like to use the default Chain ID 'public-testnet-14.5d79b6958580'? (y/n)"
+                echo "Would you like to use the default Chain ID 'public-testnet-15.0dacadb8d663'? (y/n)"
                 read choice
 
                 if [[ $choice == "y" || $choice == "Y" ]]; then
-                    CHAIN_ID="public-testnet-14.5d79b6958580"
+                    CHAIN_ID="public-testnet-15.0dacadb8d663"
                 else
                     echo "Please enter the name of Chain ID:"
                     read CHAIN_ID
@@ -109,7 +109,7 @@ while true; do
                 echo "export BASE_DIR=$HOME/.local/share/namada" >> ~/.bash_profile
 
                 echo "Downloading and installing Namada..."
-                NAMADA_TAG=v0.23.1
+                NAMADA_TAG=v0.28.2
                 git clone https://github.com/anoma/namada
                 cd namada
                 git checkout $NAMADA_TAG
