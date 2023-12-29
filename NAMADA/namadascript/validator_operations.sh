@@ -34,6 +34,9 @@ while true; do
                 init_validator() {
     echo "Initializing validator..."
 
+    # Запрашиваем адрес электронной почты у пользователя и сохраняем его в переменную
+    read -p "Enter your email address: " EMAIL
+
     # Создаем временный файл для сохранения вывода команды
     init_result_file="/tmp/init_validator_output.txt"
 
@@ -43,6 +46,8 @@ while true; do
         --account-keys $WALLET_NAME \
         --signing-keys $WALLET_NAME \
         --commission-rate 0.05 \
+        --email $EMAIL \
+        --unsafe-dont-encrypt \
         --max-commission-rate-change 0.01 | tee $init_result_file
 
     # Извлекаем адрес валидатора из файла и убираем лишние символы
@@ -60,7 +65,8 @@ while true; do
     # Удаляем временный файл
     rm -f $init_result_file
 }
-                init_validator
+
+init_validator
             fi
             read -p "Press any key to continue..."
             ;;
